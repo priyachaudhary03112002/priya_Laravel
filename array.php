@@ -1,7 +1,7 @@
 	<?php
 
 
-          $a = array("red", "green", "pink", "blue","green");
+          $a = array("red", "pink", "blue","green");
           print_r(array_unique($a));
  
          ?>
