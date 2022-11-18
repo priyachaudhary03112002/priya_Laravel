@@ -24,9 +24,23 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+    
 </head>
 
 <body>
+    <?php
+        function active($current_page)
+        {
+            $url_array = explode('/', $_SERVER['REQUEST_URI']);
+            $url = end ($url_array);
+            if ($current_page == $url)
+            {
+                echo "active";
+            }
+        }
+?>
+
     <!-- Topbar Start -->
     <div class="container-fluid">
         <div class="row bg-secondary py-1 px-xl-5">
@@ -44,10 +58,10 @@
                         <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">My Account</button>
                         <div class="dropdown-menu dropdown-menu-right">
                             <button class="dropdown-item" type="button">
-                                <a href="SignIn.php">Sign in</button>
+                                <a href="Signin">Sign in</button>
                                     
                             <button class="dropdown-item" type="button">
-                                <a href="SignUp.php">Sign up</a></button>
+                                <a href="SignUp">Sign up</a></button>
                         </div>
                     </div>
                     <div class="btn-group mx-2">
@@ -98,11 +112,15 @@
                     </div>
                 </form>
             </div>
-            <div class="col-lg-4 col-6 text-right">
-                <p class="m-0">Customer Service</p>
-                <h5 class="m-0">+012 345 6789</h5>
+             
+            <div class="mx-auto">
+                <a href="SignUp" class="<?php active('SignUp')?>">Sign Up</a>
+                &nbsp
+                <a href="Signin" class="<?php active('Signin')?>">Sign In</a>
+                
             </div>
-        </div>
+    
+    </div>
     </div>
     <!-- Topbar End -->
 
@@ -148,17 +166,37 @@
                     </button>
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto py-0">
-                            <a href="index.php" class="nav-item nav-link active">Home</a>
-                            <a href="shop.php" class="nav-item nav-link">Shop</a>
-                            <a href="detail.php" class="nav-item nav-link">Shop Detail</a>
+                            <a href="index" class="nav-item nav-link <?php active('index')?>">Home</a>
+                            <a href="shop" class="nav-item nav-link <?php active('shop')?>">Shop</a>
+                            <a href="detail" class="nav-item nav-link <?php active('detail')?>">Shop Detail</a>
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages <i class="fa fa-angle-down mt-1"></i></a>
                                 <div class="dropdown-menu bg-primary rounded-0 border-0 m-0">
-                                    <a href="cart.php" class="dropdown-item">Shopping Cart</a>
-                                    <a href="checkout.php" class="dropdown-item">Checkout</a>
+                                    <a href="cart" class="dropdown-item">Shopping Cart</a>
+                                    <a href="checkout" class="dropdown-item">Checkout</a>
                                 </div>
                             </div>
-                            <a href="contact.php" class="nav-item nav-link">Contact</a>
+                            <a href="contact" class="nav-item nav-link">Contact</a>
+                            <?php
+                            if(isset($_SESSION['username']))
+                            {
+                            ?>
+                        <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">User <?php echo $_SESSION['name']?> <i class="fa fa-angle-down mt-1"></i></a>
+                         <div class="dropdown-menu bg-primary rounded-0 border-0 m-0">
+                        <a href="profile" class="dropdown-item">profile</a>
+                                    
+                     </div>
+                </div>
+                    <a href="logout" class="nav-item nav-link">Logout</a>
+                            <?php
+                        }
+                        else
+                        {
+                            ?>
+                            <?php
+                        }
+                        ?>
                         </div>
                         <div class="navbar-nav ml-auto py-0 d-none d-lg-block">
                             <a href="" class="btn px-0">

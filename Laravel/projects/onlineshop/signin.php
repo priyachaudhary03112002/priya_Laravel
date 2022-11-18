@@ -1,5 +1,10 @@
 <?php
+if(isset($_SESSION['username']))
+{
+    echo "<script>window.location='index';</script>";
+}
     include_once('header.php');
+    
 ?>
 
     <!-- Breadcrumb Start -->
@@ -23,21 +28,27 @@
             <div class="col-lg-7 mb-5">
                 <div class="contact-form bg-light p-30">
                     <div id="success"></div>
-                    <form name="sentMessage" id="contactForm" novalidate="novalidate">
+                    <form  action="" method="post">
                        
+                         <div class="control-group">
+                            <input type="text" class="form-control" name="username" placeholder="Enter Your username"
+                                required="required" data-validation-required-message="Please enter your username" />
+                            <p class="help-block text-danger"></p>
+                        </div>
+
                         <div class="control-group">
-                            <input type="email" class="form-control" id="email" placeholder="Enter Your Email"
+                            <input type="email" class="form-control" name="email" placeholder="Enter Your Email"
                                 required="required" data-validation-required-message="Please enter your email" />
                             <p class="help-block text-danger"></p>
                         </div>
                                               
                          <div class="control-group">
-                            <input type="Password" class="form-control" id="Password" placeholder="Enter Your Password"
+                            <input type="Password" class="form-control" name="password" placeholder="Enter Your Password"
                                 required="required" data-validation-required-message="Please enter your Password" />
                             <p class="help-block text-danger"></p>
                         </div>
                         <div>
-                            <button class="btn btn-primary py-2 px-4" type="submit" id="sendMessageButton">Sign In</button>
+                            <button class="btn btn-primary py-2 px-4" type="submit" name="Signin">Sign in</button>
                         </div>
                     </form>
                 </div>

@@ -23,31 +23,71 @@
             <div class="col-lg-7 mb-5">
                 <div class="contact-form bg-light p-30">
                     <div id="success"></div>
-                    <form name="sentMessage" id="contactForm" novalidate="novalidate">
+                     <form action="#" method="post" enctype="multipart/form-data">
                         <div class="control-group">
-                            <input type="text" class="form-control" id="name" placeholder="First Name"
+                            <input type="text" class="form-control" name="name" placeholder=" Name"
                                 required="required" data-validation-required-message="Please enter your name" />
                             <p class="help-block text-danger"></p>
                         </div>
                          <div class="control-group">
-                            <input type="text" class="form-control" id="name" placeholder="Last Name"
-                                required="required" data-validation-required-message="Please enter your Last Name" />
+                            <input type="text" class="form-control" name="username" placeholder="username"
+                                required="required" data-validation-required-message="Please enter your User Name" />
                             <p class="help-block text-danger"></p>
                         </div>
-                        <div class="control-group">
-                            <input type="email" class="form-control" id="email" placeholder="Your Email"
-                                required="required" data-validation-required-message="Please enter your email" />
-                            <p class="help-block text-danger"></p>
-                        </div>
+                        
                                               
                          <div class="control-group">
-                            <input type="Password" class="form-control" id="Password" placeholder="Your Password"
+                            <input type="Password" class="form-control" name="password" placeholder="Your Password"
                                 required="required" data-validation-required-message="Please enter your Password" />
                             <p class="help-block text-danger"></p>
                         </div>
-                        <div>
-                            <button class="btn btn-primary py-2 px-4" type="submit" id="sendMessageButton">Sign Up</button>
+                        <div class="control-group">
+                            <input type="email" class="form-control" name="email" placeholder="Your Email"
+                                required="required" data-validation-required-message="Please enter your email" />
+                            <p class="help-block text-danger"></p>
                         </div>
+                         <div class="control-group">
+                            <input type=" number" class="form-control" name="mobile" placeholder="mobile number"
+                                required="required" data-validation-required-message="Please enter your mobile number" />
+                            <p class="help-block text-danger"></p>
+                        </div>
+                        <div class="form-group">
+                    <label for="address" class="form-lable"></label>
+                    <textarea rows="5" cols="15" class="form-control form-control-lg" name="address" placeholder="address"></textarea>
+                  </div>
+                    
+                     <div class="control-group">
+                            <input type="file" name="img" class="form-control" name="img">
+                        </div>
+                        <br>
+                        <div class="form-groups">
+                        <label>Gender</label><br>
+                        <div class="form-check-inline">
+                        <label class="form-check-label" for="radio1">
+                        <input type="radio" class="form-check-input" id="radio1" name="gender" value="male" checked>Male
+                        </label>
+                        </div>
+                        <div class="form-check-inline">
+                        <label class="form-check-label" for="radio2">
+                        <input type="radio" class="form-check-input" id="radio2" name="gender" value="female">Female
+                        </label>
+                     </div>
+                 </div>
+
+                    <div class="col-6 form-group">
+                    <h6>Choose Lag</h6>
+                    Hindi: <input type="checkbox" name="lag[]" value="Hindi" >
+                    English: <input type="checkbox" name="lag[]" value="English">
+                    Gujarati: <input type="checkbox" name="lag[]" value="Gujarati">
+                    </div> 
+                    <div>
+                        <button class="btn btn-primary py-2 px-4" type="submit"  name="submit">Sign Up</button>
+                     </div>
+                    <div class="col-6 form-group">
+                                    
+                    <a href="Signin">CLICK HERE FOR SIGNIN</a>
+                    </div>
+                                        
                     </form>
                 </div>
             </div>
@@ -67,29 +107,18 @@
     </div>
     <!-- Contact End -->
 
-
-    
-
-
     <!-- Back to Top -->
     <a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
 
-
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-
-    <!-- Contact Javascript File -->
-    <script src="mail/jqBootstrapValidation.min.js"></script>
-    <script src="mail/contact.js"></script>
-
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
-</body>
-
-</html>
 <?php
     include_once('footer.php');
 ?>
+
+
+ 
+                 
+                    
+                  
+
+
+                  
