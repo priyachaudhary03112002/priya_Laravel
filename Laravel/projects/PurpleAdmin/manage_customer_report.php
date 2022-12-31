@@ -30,8 +30,10 @@
                           <th>Email</th>
                           <th>mobile</th>
                           <th>address </th>
-                          <th>button </th>
-                        </tr>
+                          <th>img </th>
+                          <th>gender </th>
+                          <th>lag </th>
+                          </tr>
                       </thead>
                       <tbody>
                          <?php
@@ -46,15 +48,14 @@
                           <td><?php echo $data->email;?></td>
                           <td><?php echo $data->mobile;?></td>
                           <td><?php echo $data->address;?></td>
-                          <td> <button type="button" class="btn btn-primary btn-sm">Edit</button>
-                            <button type="button" class="btn btn-info btn-sm">Delete</button></td>
-
-                        </tr>
+                          <td><?php echo $data->img;?></td>
+                          <td><?php echo $data->gender;?></td>
+                          <td><?php echo $data->lag;?></td>
+                         </tr>
                          <?php 
                         }
                         ?>
-                        
-                        
+                                               
                       </tbody>
                     </table>
                     </div>

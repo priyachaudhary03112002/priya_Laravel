@@ -1,3 +1,4 @@
+
 <?php
   include_once ('header.php');
 ?>
@@ -28,7 +29,8 @@
                       <div class="form-group">
                         <label>File upload</label>
                         <input type="file" name="cate_img" class="form-control" />
-                        </div>
+                        <img src="upload/<?php echo $fetch->cate_img?>" style="width:50px;height:50px" alt="">
+                        </div> 
                       </div>
                    
                       <button type="submit" name="submit" class="btn btn-gradient-primary me-2">Submit</button>

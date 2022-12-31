@@ -72,21 +72,34 @@
             <li class="nav-item nav-profile dropdown">
               <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
                 <div class="nav-profile-img">
-                  <img src="assets/images/faces/face01.jpg" alt="image">
+                  <img src="upload/admin/<?php echo $_SESSION['img']?>" style="width:40px;height:40px;" alt="image">
                   <span class="availability-status online"></span>
                 </div>
-                <div class="nav-profile-text">
-                  <p class="mb-1 text-black">Priya Chaudhary</p>
+
+
+                        <?php
+                            if(isset($_SESSION['admin_username']))
+                            {
+                            ?>
+                        
+                   <div class="nav-profile-text">
+                  <p class="mb-1 text-black">Welcome <?php echo $_SESSION['admin_username']?></p>
                 </div>
               </a>
               <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
-                <a class="dropdown-item" href="#">
-                  <i class="mdi mdi-cached me-2 text-success"></i> Activity Log </a>
+                <a class="dropdown-item" href="profile">
+                  <i class="mdi mdi-cached me-2 text-success"></i> profile </a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">
-                  <i class="mdi mdi-logout me-2 text-primary"></i> Signout </a>
+                <a class="dropdown-item" href="logout">
+                  <i class="mdi mdi-logout me-2 text-primary"></i> Logout </a>
               </div>
             </li>
+             <?php
+                        }
+                        else
+                        {
+                        }
+                            ?>
             <li class="nav-item d-none d-lg-block full-screen-link">
               <a class="nav-link">
                 <i class="mdi mdi-fullscreen" id="fullscreen-button"></i>
@@ -283,29 +296,5 @@
                 <span class="menu-title">View order reports </span>
                 <i class="mdi mdi-contacts menu-icon"></i>
               </a>
-            </li>
-
-            <?php
-                            if(isset($_SESSION['admin_username']))
-                            {
-                            ?>
-              <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span class="menu-title">Welcome </span>
-                <i class="mdi mdi-contacts menu-icon"></i>
-              </a>
-               <a class="nav-link" href="profile">
-                <span class="menu-title">profile </span>
-                <i class="mdi mdi-contacts menu-icon"></i>
-              </a>
-            </li>
-               </ul>
-                <a href="logout" class="nav-item nav-link">Logout</a>
-                 <?php
-                        }
-                        else
-                        {
-                        }
-                            ?>
-                            
+            </li>                           
         </nav>

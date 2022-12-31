@@ -14,23 +14,26 @@ include_once('header1.php')
               </div>
               <h4>New here?</h4>
               <h6 class="font-weight-light">Signing up is easy. It only takes a few steps</h6>
-              <form class="pt-3" method="post" action="">
+              <form id="form1" class="form" data-validator-option="{timely:2, focusCleanup:true}" method="post" action="">
                 <div class="form-group">
-                  <input type="text" class="form-control form-control-lg" name="name" placeholder="name">
+                  <input type="text" class="form-control form-control-lg" name="name" placeholder="name" data-rule="required; name;"
+            data-rule-username="[/[\w\d]{4,30}/, 'Please enter 3-12 digits, letters, underscores']"
+            data-tip="You can use letters, numbers and periods">
                 </div>
                 <div class="form-group">
-                  <input type="email" class="form-control form-control-lg" name="email" placeholder="email">
+                  <input type="email" class="form-control form-control-lg" name="email" placeholder="email" data-rule="required;email"  data-tip="ex:example@abc.com">
                 </div>    
-                             
+                              
                 <div class="form-group">
-                  <input type="password" class="form-control form-control-lg" name="password" placeholder="password">
+                  <input type="password" class="form-control form-control-lg" name="password" placeholder="password" data-rule="Password: required; length(4~16)"
+            data-tip="Please fill in at least four characters">
                 </div>
                 <div class="form-group">
-                  <input type="text" class="form-control form-control-lg" name="mobile" placeholder="mobile number">
+                  <input type="text" class="form-control form-control-lg" name="mobile" placeholder="mobile number" data-rule="required;phone number"  data-tip="ex:1234567890">
                 </div> 
                 <div class="col-7 form-group">
                     <h5>Choose Lag</h5>
-                   <input type="checkbox" name="lag[]" value="Hindi" > Hindi 
+                   <input type="checkbox" name="lag[]" value="Hindi" data-rule="checked"> Hindi 
                     <input type="checkbox" name="lag[]" value="English">English
                     <input type="checkbox" name="lag[]" value="Gujarati">Gujarati 
                     </div>
@@ -43,7 +46,7 @@ include_once('header1.php')
                   </div>
                 </div>
                 <div class="mt-3">
-                  <button class="btn btn-primary " type="submit"  name="submit">SIGN UP</a>
+                  <button class="btn btn-primary " type="submit"  name="submit">SIGN UP
                 </div><br>
                 <div class="col-7 form-group">
                  <h5> Already have an account? <a href="login"> Login</a></h5>

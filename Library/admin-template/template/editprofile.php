@@ -55,7 +55,7 @@ include_once('header.php')
                     </div>
                     <div class="control-group">
                             <input type="file" name="img" class="form-control" name="img">
-                            <img src="upload/<?php echo $fetch->img?>" style="width:50px;height:50px" alt="">
+                            <img src="upload/<?php echo $fetch->img?>" style="width:50px;height:50px" alt="image">
                         </div>
                 <div>
                         <button class="btn btn-primary py-2 px-4" type="submit"  name="submit">Save</button>

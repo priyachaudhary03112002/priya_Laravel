@@ -16,4 +16,8 @@
     <link rel="stylesheet" href="css/vertical-layout-light/style.css">
     <!-- endinject -->
     <link rel="shortcut icon" href="images/favicon.png" />
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script> -->
+   <!-- <link rel="stylesheet" href="demo.css"> -->
+   <!-- <script src="https://cdn.jsdelivr.net/jquery.form/3.51/jquery.form.min.js"></script>
+<script src="dist/jquery.validator.js?local=en"></script> -->
   </head>

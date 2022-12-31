@@ -1,11 +1,11 @@
 <?php
-include_once('model.php');  // step 1  load mopdel 
+include_once('model.php');  
 
-class control extends model // step 2 extends model
+class control extends model 
 
 {
 	function __construct()
-	{
+	{ 
 		session_start();
 		model::__construct();
 		$path=$_SERVER['PATH_INFO'];
@@ -18,7 +18,30 @@ class control extends model // step 2 extends model
 			case '/index':
 				include_once ('index.php');
 				break;
+
 			case '/contact':
+			if(isset($_REQUEST['submit']))
+			{
+				$name=$_REQUEST['name'];
+				$email=$_REQUEST['email'];
+				$subject=$_REQUEST['subject'];
+				$message=$_REQUEST['message'];				
+											
+				$data=array("name"=>$name,"email"=>$email,"subject"=>$subject, "message"=>$message);
+				
+				
+				$res=$this->insert('contact',$data);
+				if($res)
+				{
+					echo "<script> alert('Send Msg Success')
+					window.location='index';
+					</script>";
+				}
+				else
+				{
+					echo "FGAILED";
+				}
+			}
 				include_once ('contact.php');
 				break;
 
@@ -117,6 +140,12 @@ class control extends model // step 2 extends model
 				$chk=$run->num_rows; // all cond true or false by rows
 				if($chk==1) // 1 means true
 				{
+					if(isset($_REQUEST['rem']))
+					{
+						setcookie('username',$username,time()+15);
+						setcookie('email',$email,time()+15);
+						setcookie('password',$password,time()+15);
+					}
 					$fetch=$run->fetch_object(); //
 					$cust_id=$fetch->cust_id;						
 					$username=$fetch->username;	
@@ -165,10 +194,10 @@ class control extends model // step 2 extends model
 				$lag_arr=$_REQUEST['lag'];
 				$lag=implode(",",$lag_arr);
 
-				$file=$_FILES['img']['name'];  // get only input type="file"
-				$path='upload/'.$file;   // PATH
-				$tmp_file=$_FILES['img']['tmp_name']; // GET DUPLICATE IMG
-				move_uploaded_file($tmp_file,$path); // MOVE DUP IMG IN PATH
+				$file=$_FILES['img']['name'];  
+				$path='upload/'.$file;   
+				$tmp_file=$_FILES['img']['tmp_name']; 
+				move_uploaded_file($tmp_file,$path); 
 				
 				$data=array("name"=>$name,"username"=>$username,"password"=>$enc_password,"email"=>$email,"address"=>$address, "mobile"=>$mobile,"gender"=>$gender,"lag"=>$lag,"img"=>$file);
 				//print_r($data);
@@ -176,7 +205,9 @@ class control extends model // step 2 extends model
 				$res=$this->insert('customer',$data);
 				if($res)
 				{
-					echo "<script> alert('register Success')</script>";
+					echo "<script> alert('register Success')
+					window.location='Signin';
+					</script>";
 				}
 				else
 				{

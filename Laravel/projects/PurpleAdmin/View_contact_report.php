@@ -19,14 +19,15 @@
                   <div class="card-body">
                     <h4 class="card-title">Contact Table</h4>
                     <br> 
+                     <div class="table-responsive">
                     <table class="table">
                       <thead>
                         <tr>
                           <th>contact_id</th>
                           <th>Name</th>
                           <th>Email</th>
-                          <th>Comment</th>
-                          <th>button </th>
+                          <th>Subject</th>
+                          <th>Message</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -38,9 +39,8 @@
                           <td><?php echo $data->contact_id;?></td>
                           <td><?php echo $data->name;?></td>
                           <td><?php echo $data->email;?></td>
-                          <td><?php echo $data->comment;?></td>
-                          <td> <button type="button" class="btn btn-primary btn-sm">Edit</button>
-                            <button type="button" class="btn btn-info btn-sm">Delete</button></td>
+                          <td><?php echo $data->subject;?></td>
+                          <td><?php echo $data->message;?></td>
 
                         </tr>
                         <?php 
@@ -50,6 +50,7 @@
                         
                       </tbody>
                     </table>
+                  </div>
                   </div>
                 </div>
               </div>

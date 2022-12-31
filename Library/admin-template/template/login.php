@@ -20,10 +20,13 @@ include_once('header1.php');
               <h6 class="font-weight-light">Sign in to continue.</h6>
               <form class="pt-3" method="post" action="">
                 <div class="form-group">
-                  <input type="name" class="form-control form-control-lg" name="name" placeholder="name">
+                  <input type="name" class="form-control form-control-lg" name="name" placeholder="name" value="<?php if(isset($_COOKIE['name'])){ echo $_COOKIE['name'];}?>">
                 </div>
                 <div class="form-group">
-                  <input type="password" class="form-control form-control-lg" name="password" placeholder="password">
+                  <input type="password" class="form-control form-control-lg" name="password" placeholder="password" value="<?php if(isset($_COOKIE['password'])){ echo $_COOKIE['password'];}?>">
+                </div>
+                <div class="form-group">
+                  <input type="checkbox" name="rem" class="p-4"> : Remember Me
                 </div>
                 <div class="mt-3">
                   <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" type="submit" name="login">SIGN IN</button>

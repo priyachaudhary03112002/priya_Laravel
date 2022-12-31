@@ -26,8 +26,7 @@
                           <th>Cust_id</th>
                           <th>Cart_id</th>
                           <th>Total Amount</th>
-                          <th>button </th>
-                        </tr>
+                          </tr>
                       </thead>
                       <tbody>
                         <?php
@@ -40,10 +39,7 @@
                           <td><?php echo $data->cart_id;?></td>
                           <td><?php echo $data->total_amount;?></td>
                           
-                          <td> <button type="button" class="btn btn-primary btn-sm">Edit</button>
-                            <button type="button" class="btn btn-info btn-sm">Delete</button></td>
-
-                        </tr>
+                          </tr>
                          <?php 
                         }
                         ?>

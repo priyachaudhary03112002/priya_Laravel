@@ -36,8 +36,8 @@
                       </thead>
                       <tbody>
                         <?php
-                         foreach($product_arr as $data)
-                         {
+                          foreach($product_arr as $data)
+                       {
                           ?>
                         <tr>
                           <td><?php echo $data->product_id;?></td>
@@ -47,8 +47,9 @@
                           <td><?php echo $data->prod_discprice;?></td>
                           <td><?php echo $data->prod_img;?></td>
                           <td><?php echo $data->prod_desc;?></td>
-                          <td> <button type="button" class="btn btn-primary btn-sm">Edit</button>
-                            <button type="button" class="btn btn-info btn-sm">Delete</button></td>
+                          <td> <a href="prod_edit?editprod=<?php echo $data->product_id?>" class="btn btn-primary btn-sm" name="submit">Edit</a>
+
+                           <a href="delete?deleteprod=<?php echo $data->product_id?>" class="btn btn-info btn-sm" name="submit">Delete</a></td>
                         </tr>
                          <?php 
                         }

@@ -12,7 +12,7 @@
                   <li class="breadcrumb-item active" aria-current="page">Category Table</li>
                 </ol>
               </nav>
-            </div>
+             </div>
             <div class="row">
               <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
@@ -38,9 +38,9 @@
                           <td><?php echo $data->cate_name;?></td>
                           <td><?php echo $data->cate_img;?></td>
                            
-                          <td> <a href="cate_edit?editcate=<?php echo $data->cate_id?>" class="btn btn-primary btn-sm" name="submit">Edit</a>
+                          <td> <a href="cate_edit?editcate=<?php echo $data->category_id?>" class="btn btn-primary btn-sm" name="submit">Edit</a>
 
-                             <a href="cate_delete?delcategory=<?php echo $data->category_id?>" class="btn btn-info btn-sm" name="submit">Delete</a> </td>
+                             <a href="cate_delete?deletecate=<?php echo $data->category_id?>" class="btn btn-info btn-sm" name="submit">Delete</a> </td>
 
                          </tr>
                         <?php 

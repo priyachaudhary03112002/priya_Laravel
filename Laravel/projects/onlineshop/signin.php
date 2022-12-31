@@ -32,21 +32,25 @@ if(isset($_SESSION['username']))
                        
                          <div class="control-group">
                             <input type="text" class="form-control" name="username" placeholder="Enter Your username"
-                                required="required" data-validation-required-message="Please enter your username" />
+                                required="required" data-validation-required-message="Please enter your username" value="<?php if(isset($_COOKIE['username'])){ echo $_COOKIE['username'];}?>" />
                             <p class="help-block text-danger"></p>
                         </div>
 
                         <div class="control-group">
                             <input type="email" class="form-control" name="email" placeholder="Enter Your Email"
-                                required="required" data-validation-required-message="Please enter your email" />
+                                required="required" data-validation-required-message="Please enter your email"  value="<?php if(isset($_COOKIE['email'])){ echo $_COOKIE['email'];}?>" />
                             <p class="help-block text-danger"></p>
                         </div>
                                               
                          <div class="control-group">
                             <input type="Password" class="form-control" name="password" placeholder="Enter Your Password"
-                                required="required" data-validation-required-message="Please enter your Password" />
+                                required="required" data-validation-required-message="Please enter your Password" value="<?php if(isset($_COOKIE['password'])){ echo $_COOKIE['password'];}?>" />
                             <p class="help-block text-danger"></p>
                         </div>
+                        <div class="form-group">
+                  <input type="checkbox" name="rem" class="p-4"> : Remember Me
+                  <p class="help-block text-danger"></p>
+                </div>
                         <div>
                             <button class="btn btn-primary py-2 px-4" type="submit" name="Signin">Sign in</button>
                         </div>

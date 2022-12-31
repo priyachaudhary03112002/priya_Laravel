@@ -19,29 +19,24 @@
                   <div class="card-body">
                     <h4 class="card-title">Blog Form </h4>
                    <br>
-                    <form class="forms-sample">
-                      <div class="form-group">
-                        <label for="exampleInputName1">Blog_Id</label>
-                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Id">
-                      </div>
-                      <div class="form-group">
+                    <form class="forms-sample" method="post" action="" enctype="multipart/form-data">
+                    <div class="form-group">
                         <label for="exampleInputName1">Title</label>
-                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Title">
+                        <input type="text" class="form-control" name="title" placeholder="Title">
                       </div>
+                       <div class="form-group">
+                        <label>File upload </label>
+                        <input type="file" name="img" class="form-control"/>
+                        </div>
                       <div class="form-group">
                         <label for="exampleInputName1">Description
                         </label>
-                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Description
+                        <input type="text" class="form-control" name="description" placeholder="Description
                           ">
-                      </div>
-
-                      <div class="form-group">
-                        <label>Blog Img</label>
-                        <input type="file" name="name" class="form-control" />
-                        </div>
+                      </div>                     
                       </div>
                    
-                      <button type="submit" class="btn btn-gradient-primary me-2">Submit</button>
+                      <button type="submit" class="btn btn-gradient-primary me-2" name="submit">Submit</button>
                       <button class="btn btn-light">Cancel</button>
                     </form>
                   </div>

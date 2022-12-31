@@ -1,8 +1,8 @@
 <?php
 
-include_once('model.php');  // step 1  load mopdel 
+include_once('model.php');   
 
-class control extends model // step 2 extends model
+class control extends model 
 
 {
 	function __construct()
@@ -83,6 +83,45 @@ class control extends model // step 2 extends model
 			}
 				include_once ('editprofile.php');
 				break;
+
+				case '/change_password':
+				if (isset($_REQUEST['change_submit'])) {
+					$oldpassword=$_REQUEST['oldpassword'];
+					$enc_old_pass=md5($oldpassword);
+
+					$admin_id=$_SESSION['admin_id'];
+					$where=array("password"=>$enc_old_pass,"admin_id"=>$admin_id);
+					$run=$this->select_where('admin',$where);
+
+					if ($run) {
+						$new_password=$_REQUEST['new_password'];
+						$enc_new_pass=md5($new_password);
+
+						$change_password=$_REQUEST['change_password'];
+						$enc_change_password=md5($change_password);
+
+						if($_REQUEST["new_password"] === $_REQUEST['change_password']){
+
+						$data=array("password"=>$enc_change_password);
+
+						$res=$this->update_where('admin',$data,$where);
+						if ($res) 
+						{
+							echo" <script> alert('Update password Success');
+							window.location='index';
+							</script>";
+						}
+						else{
+							echo"
+							<script> alert(' password not match');
+							window.location='change_password';
+							</script>";
+						}
+					}
+				}
+			}
+					include_once ('change_password.php');
+					break;
 				
 			case '/add_category':
 			
@@ -267,6 +306,49 @@ class control extends model // step 2 extends model
 				include_once ('book_report.php');
 				break;
 
+			
+			case '/searchData':
+			if(isset($_REQUEST['search']))
+				{
+					$search=$_REQUEST['search'];
+					$book_arr=$this->selectSerach('book','category','book.cate_id=category.cate_id',$search);
+					?>
+					<caption>Reg Form</caption> 
+    	
+					<thead>
+                        <tr>
+                          <th> book_id</th>
+                          <th>cate_id</th>
+                          <th>book_name</th>
+                          <th> author</th>
+                           <th>quantity</th>
+                          <th>price</th>
+                          <th>rack_no</th>
+                          </tr>
+                         </thead>
+					<?php
+					if(!empty($book_arr))
+					{		
+						foreach($book_arr as $f)
+						{		
+						?>
+						<tr class="table-danger">
+                          <td><?php echo $data->book_id;?></td>
+                          <td>  <?php echo $data->cate_id;?></td> 
+                           <td><?php echo $data->book_name;?></td>
+                           <td> <?php echo $data->author;?></td>
+                          <td> <?php echo $data->quantity;?></td>
+                          <td> <?php echo $data->price;?></td>
+                          <td> <?php echo $data->rack_no;?></td>
+
+                           </tr> 
+						<?php
+						 }
+					}
+				}
+			
+			break;
+
 				case '/login':
 				if(isset($_REQUEST['login']))
 			{
@@ -280,6 +362,11 @@ class control extends model // step 2 extends model
 				$chk=$run->num_rows; 
 				if($chk==1) 
 				{
+					if(isset($_REQUEST['rem']))
+					{
+						setcookie('name',$name,time()+15);
+						setcookie('password',$password,time()+15);
+					}
 					$fetch=$run->fetch_object(); //
 					$admin_id=$fetch->admin_id;						
 					$name=$fetch->name;	
@@ -313,11 +400,8 @@ class control extends model // step 2 extends model
 					
 			break;
 
-				
-
-
 			case '/register':
-				if(isset($_REQUEST['submit']))
+				if(isset($_REQUEST['submit'])) 
 			{
 				$name=$_REQUEST['name'];
 				$email=$_REQUEST['email'];

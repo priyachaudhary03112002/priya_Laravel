@@ -48,6 +48,20 @@ class model
  		return $run;
 		
  	}
+ 	
+	function selectSerach($tbl1,$tbl2,$on1,$value)
+	{
+		$sel="select * from $tbl1 join $tbl2 on $on1 where $col LIKE '$value%' ; ";  // query
+		$run=$this->conn->query($sel);  // run query
+		while($fetch=$run->fetch_object())  // data fetch from query
+		{
+			$arr[]=$fetch;
+		}
+		if(!empty($arr))
+		{
+			return $arr;
+		}
+	}
 	
  	
 	function delete_where($tbl,$where)

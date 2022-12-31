@@ -18,6 +18,7 @@
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Blog Table</h4>
+                    <div class="table-responsive"> 
                     <br>
                     <table class="table">
                       <thead>
@@ -39,8 +40,9 @@
                           <td><?php echo $data->title;?></td>
                           <td><?php echo $data->img;?></td>
                           <td><?php echo $data->description;?></td>
-                          <td> <button type="button" class="btn btn-primary btn-sm">Edit</button>
-                           <button type="button" class="btn btn-info btn-sm">Delete</button></td>
+                          <td> <a href="blog_edit?editblog=<?php echo $data->blog_id?>" class="btn btn-primary btn-sm">Edit</a>
+                            
+                            <a href="delete?deleteblog=<?php echo $data->blog_id?>" class="btn btn-info btn-sm">Delete</a> </td>
                         </tr>
                         <?php 
                         }

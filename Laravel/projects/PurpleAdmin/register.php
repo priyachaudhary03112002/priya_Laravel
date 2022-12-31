@@ -14,19 +14,23 @@
                 </div>
                 <h4>New here?</h4>
                 <h6 class="font-weight-light">Signing up is easy. It only takes a few steps</h6>
-                <form class="pt-3" method="post" action="">
+                <form class="pt-3" method="post" action="" enctype="multipart/form-data">
                   <div class="form-group">
-                    <input type="text" class="form-control form-control-lg" name="name" placeholder="name">
+                    <input type="text" class="form-control form-control-lg" name="admin_name" placeholder="name">
                   </div>
                   <div class="form-group">
-                    <input type="text" class="form-control form-control-lg" name="username" placeholder="username">
+                    <input type="text" class="form-control form-control-lg" name="admin_username" placeholder="username">
                   </div>
                   <div class="form-group">
-                    <input type="password" class="form-control form-control-lg" name="password" placeholder="password">
+                  <input type="email" class="form-control form-control-lg" name="admin_email" placeholder="email">
+                </div> 
+                  <div class="form-group">
+                    <input type="password" class="form-control form-control-lg" name="admin_password" placeholder="password">
                   </div>
-                       
-                  
-                                
+                    <div class="control-group">
+                            <input type="file" name="img" class="form-control" name="img">
+                        </div>   
+                                              
                   <div class="mb-4">
                     <div class="form-check">
                       <label class="form-check-label text-muted">

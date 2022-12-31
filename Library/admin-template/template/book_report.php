@@ -18,13 +18,15 @@ include_once('header.php');
                 <div class="card-body">
                   <h4 class="card-title">Book Report Table</h4>
                    <div class="card-header-form">
-                    <form>
+                    <form method="post" align="center">
                    <div class="input-group">  
-                  <input type="text" placeholder="Search.." name="search">
+                  <input type="text" value='<?php if(isset($search)){echo $search;}?>' placeholder="Search.." name="search" onkeyup="getData(this.value)">
                   <div class="input-group-btn">
                      <button type="submit"><i class="fa fa-search"></i></button>
                               </div> 
-                              </div> </form></div>       
+                              </div> 
+                            </form></div>    
+                            <form action="" method="post">   
                   <div class="table-responsive pt-3">
                     <table class="table table-bordered">
                       <thead>
@@ -38,7 +40,9 @@ include_once('header.php');
                           <th>rack_no</th>
                           </tr>
                          </thead>
+
                     <tbody>
+
                        
                       <?php
                   foreach($book_arr as $data)
@@ -61,6 +65,24 @@ include_once('header.php');
                         
                       </tbody>
                     </table>
+                  </form>
+
+
+<script>
+function getData(search)
+{
+  $.ajax
+  ({
+    type: "POST",
+    url: "searchData",
+    data:"search=" + search,
+    success: function(data)
+    {
+      $("#userdata").html(data) ;
+    }
+  });
+}
+</script>
                   </div>
                 </div>
               </div>

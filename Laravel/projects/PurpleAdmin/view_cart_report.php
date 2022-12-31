@@ -25,8 +25,7 @@
                           <th>Cart_id</th>
                           <th>Product_id</th>
                           <th>qty</th>
-                          <th>button </th>
-                        </tr>
+                          </tr>
                       </thead>
                       <tbody> 
                         <?php
@@ -38,10 +37,7 @@
                           <td><?php echo $data->product_id;?></td>
                           <td><?php echo $data->qty;?></td>
                                                 
-                          <td> <button type="button" class="btn btn-primary btn-sm">Edit</button>
-                            <button type="button" class="btn btn-info btn-sm">Delete</button></td>
-
-                        </tr>
+                          </tr>
                         <?php 
                         }
                         ?>

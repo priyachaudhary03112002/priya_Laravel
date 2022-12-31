@@ -19,34 +19,47 @@
                   <div class="card-body">
                     <h4 class="card-title">Product From</h4>
                     <br>
-                    <form class="forms-sample">
+                    <form class="#" method="post" action="#" enctype="multipart/form-data">
+                    
                        <div class="form-group">
-                        <label for="exampleInputName1">Product Id</label>
-                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Id">
-                      </div>
-                       <div class="form-group">
-                        <label for="exampleInputName1">Category Id</label>
-                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Category Id">
+                        <label for="exampleInputName1">Category Name</label>
+                           <select name="category_id" class="form-control "  required="required">
+                    <option value="">Select Category</option>
+                    <?php
+                    foreach($category as $c)
+                    {
+                    ?>
+                    <option value="<?php echo $c->category_id?>">
+                            <?php echo $c->cate_name?>
+                    </option>
+                    <?php   
+                    }
+                    ?>
+                  </select>
                       </div>
                       <div class="form-group">
                         <label for="exampleInputName1">Product Name</label>
-                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Name">
+                        <input type="text" class="form-control" id="exampleInputName1" name="prod_name" placeholder="Name">
                       </div>
                        <div class="form-group">
                         <label for="exampleInputName1">Product mainprice </label>
-                        <input type="text" class="form-control" id="exampleInputName1" placeholder="mainprice">
+                        <input type="text" class="form-control" name="prod_mainprice" placeholder="mainprice">
                       </div>
                        <div class="form-group">
                         <label for="exampleInputName1">Product discprice</label>
-                        <input type="text" class="form-control" id="exampleInputName1" placeholder="discprice">
+                        <input type="text" class="form-control"  name="prod_discprice" placeholder="discprice">
                       </div>         
                       <div class="form-group">
                         <label>File upload</label>
-                        <input type="file" name="name" class="form-control" />
+                        <input type="file" name="prod_img" class="form-control" />
                         </div>
+                       
+                      <div class="form-group">
+                        <label for="exampleInputName1">Product description </label>
+                        <input type="text" class="form-control" name="prod_desc" placeholder="description">
                       </div>
-                   
-                      <button type="submit" class="btn btn-gradient-primary me-2">Submit</button>
+                      </div>
+                     <button type="submit" name="submit" class="btn btn-gradient-primary me-2">Submit</button>
                       <button class="btn btn-light">Cancel</button>
                     </form>
                   </div>

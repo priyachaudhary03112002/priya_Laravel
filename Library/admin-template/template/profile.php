@@ -9,16 +9,11 @@
             <div class="row">
               <div class="col-sm-6">
                 <h3 class="section-title">Hi,<?php echo $fetch->name?>!</h3>
-              </div>
-              
-              <div class="col-sm-6">
-                <div class="d-flex align-items-center justify-content-md-end">
-                </div>
-              </div>
+              </div>             
+             
             </div>
             <div class="row  mt-3">
-              <div class="col-xl- d-flex grid-margin stretch-card">
-               
+              <div class="col-xl-7 d-flex grid-margin stretch-card">               
               <div class="card">
                   <div class="card-body">
                     <div class="d-flex flex-wrap justify-content-between">
@@ -29,7 +24,7 @@
                         <div class="row">
                           <div class="col-lg-6">
                             <div id="circleProgress6" class="progressbar-js-circle rounded p-3">
-                                <img src="upload/<?php echo $fetch->img?>" style="width:250px;height:250px" alt="" class="rounded-circle">
+                                <img src="upload/<?php echo $fetch->img?>" style="width:220px;height:220px" alt="image">
                             </div>
                           </div>
                           <div class="col-lg-6">
@@ -48,6 +43,9 @@
                                 
                               </li>
                               <button class="btn btn-success mt-2"><a href="editprofile?btnadmin_id=<?php echo $fetch->admin_id?>"> Edit</a></button>
+                               <!-- <div class="col-12 form-group"> -->
+                             <a href="change_password" style="color:gray;"> change password</a>
+                           <!-- </div> -->
                             </ul>
                           </div>
                         </div>
