@@ -29,6 +29,9 @@
     <link rel="stylesheet" href="{{url('frontend/css/style.css')}}">
   </head>
   <body class="goto-here">
+	
+  @include('sweetalert::alert')
+
 		<div class="py-1 bg-primary">
     	<div class="container">
     		<div class="row no-gutters d-flex align-items-start align-items-center px-md-0">
@@ -73,8 +76,23 @@
 	          <li class="nav-item"><a href="about" class="nav-link">About</a></li>
 	          <li class="nav-item"><a href="blog" class="nav-link">Blog</a></li>
 	          <li class="nav-item"><a href="contact" class="nav-link">Contact</a></li>
-			  <li class="nav-item"><a href="registration" class="nav-link">Registration</a></li>
-	          <li class="nav-item cta cta-colored"><a href="cart" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>
+			  <li class="nav-item cta cta-colored"><a href="cart" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>
+			  @if(session()->has('cust_id'))
+			  <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Welcome {{session('name')}}..!</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown04">
+              	<a class="dropdown-item" href="shop">profile</a>
+              	<a class="dropdown-item" href="wishlist">Wishlist</a>
+                <a class="dropdown-item" href="cart">Cart</a>
+                <a class="dropdown-item" href="checkout">Checkout</a>
+				<a class="dropdown-item" href="logout">Log Out</a>
+              </div>
+            </li>
+			@else
+						
+			<li class="nav-item"><a href="login1" class="nav-link">Login</a></li>
+						@endif
+
 			  
 	        </ul>
 	      </div>

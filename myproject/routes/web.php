@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\customerController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -64,8 +66,13 @@ Route::get('/login1', function () {
     return view('frontend.login1');
 });
 
+ 
+Route::post('/registration',[customerController::class,'register']);
 
-    // Bakend routs 
+Route::post('/login',[customerController::class,'login']);
+Route::get('/logout',[customerController::class,'logout']);
+
+ // Bakend routs 
 Route::get('/dashboard', function () {
     return view('backend.index');
 });

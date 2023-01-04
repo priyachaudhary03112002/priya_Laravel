@@ -19,7 +19,8 @@
           
         <div class="row block-9">
           <div class="col-md-6 order-md-last d-flex">
-            <form action="#" class="bg-white p-5 contact-form" method="post" enctype="multipart/form-data">
+            <form action="{{url('/registration')}}" class="bg-white p-5 contact-form" method="post" enctype="multipart/form-data">
+            @csrf
               <div class="form-group">
                 <input type="text" name="name" class="form-control" placeholder="Your Name">
               </div>
@@ -33,7 +34,7 @@
                 <input type="text" name="email" class="form-control" placeholder="Your Email">
               </div>
               <div class="form-group">
-                <input type="number" name="number" class="form-control" placeholder="Mobile">
+                <input type="number" name="mobile" class="form-control" placeholder="Mobile">
               </div>
               <div class="control-group">
               <input type="file" name="img" class="form-control" name="img">
@@ -57,6 +58,12 @@
                     English: <input type="checkbox" name="lag[]" value="English">
                     Gujarati: <input type="checkbox" name="lag[]" value="Gujarati">
                     </div> 
+                    <div class="form-group">
+                <input type="date" name="birthdate" class="form-control" placeholder="BirthDate">
+              </div>
+              <div class="form-group">
+                <textarea name="address"  cols="30" rows="4" class="form-control" placeholder="Address"></textarea>
+              </div>
               <div class="form-group">
                 <input type="submit" value="Submit" name="submit" class="btn btn-primary py-2 px-4">
               </div>

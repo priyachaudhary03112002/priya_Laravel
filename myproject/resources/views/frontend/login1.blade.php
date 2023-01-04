@@ -19,10 +19,8 @@
           
         <div class="row block-9">
           <div class="col-md-6 order-md-last d-flex">
-            <form action="#" class="bg-white p-5 contact-form" method="post" enctype="multipart/form-data">
-              <div class="form-group">
-                <input type="text" name="name" class="form-control" placeholder="Your Name">
-              </div>
+            <form action="{{url('/login')}}" class="bg-white p-5 contact-form" method="post" enctype="multipart/form-data">
+            @csrf
               <div class="form-group">
                 <input type="text" name="email" class="form-control" placeholder="Your Email">
               </div>
