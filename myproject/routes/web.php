@@ -4,6 +4,10 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\customerController;
 
+use App\Http\Controllers\categoryController;
+use App\Http\Controllers\productController;
+use App\Http\Controllers\adminController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -51,8 +55,14 @@ Route::get('/product-single', function () {
     return view('frontend.product-single');
 });
 
-Route::get('/shop', function () {
-    return view('frontend.shop');
+Route::get('/shop',[productController::class,'viewall']);
+
+Route::get('/skin', function () {
+    return view('frontend.skin');
+});
+
+Route::get('/makeup', function () {
+    return view('frontend.makeup');
 });
 
 Route::get('/wishlist', function () {
@@ -66,39 +76,68 @@ Route::get('/login1', function () {
     return view('frontend.login1');
 });
 
+Route::get('/view_customer_report',[customerController::class,'show']);
  
 Route::post('/registration',[customerController::class,'register']);
 
-Route::post('/login',[customerController::class,'login']);
+Route::post('/login1',[customerController::class,'login']);
 Route::get('/logout',[customerController::class,'logout']);
 
  // Bakend routs 
+
+ Route::get('/profile',[adminController::class,'show']);
+ Route::get('/editprofile/{id}',[adminController::class,'edit']);
+ Route::post('/editprofile/{id}',[adminController::class,'update']);
+
+ Route::post('/register',[adminController::class,'store']);
+
+Route::post('/login',[adminController::class,'login']);
+Route::get('/logout',[adminController::class,'logout']);
+
+ Route::post('/add_category',[categoryController::class,'add_category']);
+ Route::get('/manage_category',[categoryController::class,'manage_category']);
+ Route::get('/editcategory/{id}',[categoryController::class,'edit']);
+ Route::post('/editcategory/{id}',[categoryController::class,'update']);
+ Route::get('/deletecategory/{id}',[categoryController::class,'destroy']);   
+
+ 
+ Route::get('/add_product',[productController::class,'index']);
+ Route::post('/add_product',[productController::class,'add_product']);
+ Route::get('/manage_product',[productController::class,'manage_product']);
+ Route::get('/editproduct/{id}',[productController::class,'edit']);
+ Route::post('/editproduct/{id}',[productController::class,'update']);
+ Route::get('/deleteproduct/{id}',[productController::class,'destroy']);
+
 Route::get('/dashboard', function () {
-    return view('backend.index');
+    return view('backend.dashboard');
 });
 
-Route::get('/alerts_tooltips', function () {
-    return view('backend.alerts_tooltips');
+Route::get('/add_category', function () {
+    return view('backend.add_category');
 });
 
-Route::get('/badges_progress', function () {
-    return view('backend.badges_progress');
+// Route::get('/manage_category', function () {
+//     return view('backend.manage_category');
+// });
+
+// Route::get('/add_product', function () {
+//     return view('backend.add_product');
+// });
+
+// Route::get('/manage_product', function () {
+//     return view('backend.manage_product');
+// });
+
+Route::get('/view_contact_report', function () {
+    return view('backend.view_contact_report');
 });
 
-Route::get('/buttons', function () {
-    return view('backend.buttons');
-});
+// Route::get('/view_customer_report', function () {
+//     return view('backend.view_customer_report');
+// });
 
 Route::get('/calendar', function () {
     return view('backend.calendar');
-});
-
-Route::get('/cards', function () {
-    return view('backend.cards');
-});
-
-Route::get('/chartjs', function () {
-    return view('backend.chartjs');
 });
 
 Route::get('/colors', function () {
@@ -117,10 +156,6 @@ Route::get('/lockscreen', function () {
     return view('backend.lockscreen');
 });
 
-Route::get('/profile', function () {
-    return view('backend.profile');
-});
-
 Route::get('/register', function () {
     return view('backend.register');
 });
@@ -137,14 +172,6 @@ Route::get('/text_editors', function () {
     return view('backend.text_editors');
 });
 
-Route::get('/typography', function () {
-    return view('backend.typography');
-});
-
-Route::get('/panels', function () {
-    return view('backend.panels');
-});
-
 Route::get('/mail_compose', function () {
     return view('backend.mail_compose');
 });
@@ -157,6 +184,4 @@ Route::get('/mailbox', function () {
     return view('backend.mailbox');
 });
 
-Route::get('/maps_vector', function () {
-    return view('backend.maps_vector');
-});
+

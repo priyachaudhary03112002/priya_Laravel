@@ -20,7 +20,7 @@
 	        </div>
 	      </div>
 
-	      <div class="slider-item" style="background-image: url({{url('frontend/images/back2.jpg')}});">
+	      <div class="slider-item" style="background-image: url({{url('frontend/images/back.jpg')}});">
 	      	<div class="overlay"></div>
 	        <div class="container">
 	          <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
@@ -94,7 +94,7 @@
 					<div class="col-md-8">
 						<div class="row">
 							<div class="col-md-6 order-md-last align-items-stretch d-flex">
-								<div class="category-wrap-2 ftco-animate img align-self-stretch d-flex" style="background-image: url({{url('frontend/images/lipstic.jpg')}});">
+								<div class="category-wrap-2 ftco-animate img align-self-stretch d-flex" style="background-image: url({{url('frontend/images/lipstic1.jpg')}});">
 									<div class="text text-center">
 										<h2>Categories</h2>
 										<p>SKIN $ BODY CARE </p>
@@ -105,7 +105,7 @@
 							<div class="col-md-6">
 								<div class="category-wrap ftco-animate img mb-4 d-flex align-items-end" style="background-image: url({{url('frontend/images/skin.jpeg')}});">
 									<div class="text px-3 py-1">
-										<h2 class="mb-0"><a href="#">Skin</a></h2>
+										<h2 class="mb-0"><a href="skin">Skin</a></h2>
 									</div>
 								</div>
 								<div class="category-wrap ftco-animate img d-flex align-items-end" style="background-image: url({{url('frontend/images/nails.jpg')}});">
@@ -125,7 +125,7 @@
 						</div>
 						<div class="category-wrap ftco-animate img d-flex align-items-end" style="background-image: url({{url('frontend/images/makeup.jpg')}});">
 							<div class="text px-3 py-1">
-								<h2 class="mb-0"><a href="#">Makeup</a></h2>
+								<h2 class="mb-0"><a href="makeup">Makeup</a></h2>
 							</div>
 						</div>
 					</div>
@@ -377,14 +377,14 @@
     	</div>
     </section>
 		
-		<section class="ftco-section img" style="background-image: url({{url('frontend/images/back.jpg')}});">
+		<section class="ftco-section img" style="background-image: url({{url('frontend/images/back6.jpg')}});">
     	<div class="container">
 				<div class="row justify-content-end">
           <div class="col-md-6 heading-section ftco-animate deal-of-the-day ftco-animate">
           	<span class="subheading">Best Price For You</span>
             <h2 class="mb-4">Deal of the day</h2>
             <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
-            <h3><a href="#">Spinach</a></h3>
+            <h3><a href="#">cosmetic</a></h3>
             <span class="price">$10 <a href="#">now $5 only</a></span>
             <div id="timer" class="d-flex mt-5">
 						  <div class="time" id="days"></div>

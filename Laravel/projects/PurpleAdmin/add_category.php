@@ -27,7 +27,7 @@
                                       
                       <div class="form-group">
                         <label>File upload</label>
-                        <input type="file" name="cate_img" class="form-control" />
+                        <input type="file" name="cate_img" class="form-control"/>
                         </div>
                       </div>
                    

@@ -23,6 +23,9 @@
             @csrf
               <div class="form-group">
                 <input type="text" name="name" class="form-control" placeholder="Your Name">
+                <!-- @error('name')
+										<div class="alert alert-danger">{{ $message }}</div>
+									@enderror -->
               </div>
               <div class="form-group">
                 <input type="text" name="username" class="form-control" placeholder="Your Username">
@@ -50,7 +53,7 @@
                         <label class="form-check-label" for="radio2">
                         <input type="radio" class="form-check-input" id="radio2" name="gender" value="female">Female
                         </label>
-                     </div>
+                     </div> 
                  </div>
                  <div class="col-8 control-group">
                     <h6>Choose Lag</h6>

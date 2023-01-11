@@ -1,13 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\customer;
+use App\Models\admin;
+
 use Hash;
 use Alert;
+use session;
 
 use Illuminate\Http\Request;
 
-class customerController extends Controller
+class adminController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,7 +21,6 @@ class customerController extends Controller
         //
     }
 
-    
     /**
      * Show the form for creating a new resource.
      *
@@ -36,59 +37,37 @@ class customerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function register(Request $request)
+    public function store(Request $request)
     {
-
-        // $validated = $request->validate([
-        //     'name' => 'required|alpha',
-        //     'username' => 'required|unique:customers',
-        //     'password' => 'required|min:6',
-        //     'mobile'=>'required|numeric|digits:10',
-        //     'email'=>'required|xyz@gmail.com',
-        //     'file' => 'required|mimes:jpeg,png,jpg,gif,svg'
-        //     ]);
-
-
-        $data=new customer;
+        $data=new admin;
 		$data->name=$request->name;
-		$data->username=$request->username;
+		$data->email=$request->email;
 		$data->password=Hash::make($request->password);
-        $data->email=$request->email;
-        $data->mobile=$request->mobile;
-        $data->address=$request->address;
-		$data->gender=$request->gender;
-		$data->lag=implode(",",$request->lag);
-		$data->birthdate =$request->birthdate ;
 		
 		
-		// img upload
-		$img=$request->file('img');		
-		$imgname=time().'_img.'.$request->file('img')->getClientOriginalExtension();
-		$img->move('frontend/images/upload/',$imgname);  // use move for move image in public/images
-		$data->img=$imgname; // name store in db
-
 		$data->save();
 		Alert::success('success', 'Register Success');
-		return redirect('/login1');
+        return redirect('/login');
+        
     }
-
 
     function login(Request $request)
 	{
 		$email=$request->email;
-		$data=customer::where('email','=',$email)->first();
-        
+		$data=admin::where('email','=',$email)->first();
 		if($data)   // if(! $data || Hash::check($request->password,$data->password))
 		{
 			$chk=Hash::check($request->password,$data->password);
 			if($chk)
 			{
-					session()->put('cust_id',$data->id);
+				
+				
+					session()->put('admin_id',$data->id);
 					session()->put('name',$data->name);
 					session()->put('email',$data->email);
 					Alert::success('Congrats', 'You\'ve Successfully Login');
 					
-					return redirect('/index');
+					return redirect('/dashboard');
 				
 			}
 			else
@@ -107,7 +86,7 @@ class customerController extends Controller
 
     function logout()
 	{
-		session()->pull('cust_id');
+		session()->pull('admin_id');
 		session()->pull('email');
 		Alert::success('Congrats', 'You\'ve Successfully Logout');
 		return redirect('/index');
@@ -121,8 +100,8 @@ class customerController extends Controller
      */
     public function show()
     {
-        $customer=customer::all();
-        return view('backend.view_customer_report',['fetch'=>$customer]);
+       $data=admin::where("id",'=',session('admin_id'))->first();  		
+		return view('backend.profile',['fetch'=>$data]);
     }
 
     /**
@@ -133,7 +112,9 @@ class customerController extends Controller
      */
     public function edit($id)
     {
-        //
+          $data=admin::where("id",'=',$id)->first();
+            return view('backend.editprofile',['fetch'=>$data]);
+       
     }
 
     /**
@@ -145,7 +126,26 @@ class customerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       
+        $data=admin::find($id);
+		$data->name=$request->name;
+		$data->email=$request->email;
+		// $data->mobile=$request->mobile;
+				
+		
+		// img upload
+		$old_file=$data->img;
+		if($request->hasFile('img'))
+		{
+			$img=$request->file('img');		
+			$imgname=time().'_img.'.$request->file('img')->getClientOriginalExtension();
+			$img->move('backend/assets/img/upload/admin',$imgname);  
+			$data->img=$imgname; 
+		// 	unlink('backend/assets/img/upload/admin/'.$old_file);
+		 }
+		$data->update();
+		Alert::success('success', 'Update Success');
+		return redirect('/profile');
     }
 
     /**

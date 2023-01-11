@@ -81,7 +81,7 @@
 			  <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Welcome {{session('name')}}..!</a>
               <div class="dropdown-menu" aria-labelledby="dropdown04">
-              	<a class="dropdown-item" href="shop">profile</a>
+              	<a class="dropdown-item" href="profile">profile</a>
               	<a class="dropdown-item" href="wishlist">Wishlist</a>
                 <a class="dropdown-item" href="cart">Cart</a>
                 <a class="dropdown-item" href="checkout">Checkout</a>

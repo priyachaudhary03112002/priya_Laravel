@@ -19,7 +19,7 @@
           
         <div class="row block-9">
           <div class="col-md-6 order-md-last d-flex">
-            <form action="{{url('/login')}}" class="bg-white p-5 contact-form" method="post" enctype="multipart/form-data">
+            <form action="{{url('/login1')}}" class="bg-white p-5 contact-form" method="post" enctype="multipart/form-data">
             @csrf
               <div class="form-group">
                 <input type="text" name="email" class="form-control" placeholder="Your Email">
@@ -31,7 +31,7 @@
                   <input type="checkbox" name="rem" class="p-4"> : Remember Me
                 </div>           
               <div class="form-group">
-                <input type="submit" value="Login" name="submit" class="btn btn-primary py-2 px-4">
+                <input type="submit" value="Login" name="login" class="btn btn-primary py-2 px-4">
               </div>
               <div class=" form-group">Don't have an account?<a href="registration">Create</a>
              </div>

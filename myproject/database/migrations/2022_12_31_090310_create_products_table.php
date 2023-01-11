@@ -18,10 +18,13 @@ return new class extends Migration
             $table->unsignedBigInteger('cate_id'); 
             $table->foreign('cate_id')->references('id')->on('categories');
             $table->string('prod_name');
-			$table->string('prod_mainprice');
-            $table->string('prod_discprice');
-		    $table->string('cat_desc');
+			$table->string('short_desc');
+            $table->string('long_desc');		  
             $table->string('prod_img');
+            $table->string('multi_img');
+            $table->string('main_price');
+            $table->string('dis_price');
+            $table->string('status'); 
             $table->timestamps();
         });
     }

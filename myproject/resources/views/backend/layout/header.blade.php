@@ -18,11 +18,12 @@
 </head>
 
 <body class="fixed-navbar">
+  @include('sweetalert::alert')
     <div class="page-wrapper">
         <!-- START HEADER-->
         <header class="header">
             <div class="page-brand">
-                <a class="link" href="index">
+                <a class="link" href="dashboard">
                     <span class="brand">Admin
                         <span class="brand-tip">CAST</span>
                     </span>
@@ -154,7 +155,7 @@
                                             <div class="media-body">
                                                 <div class="font-13">New user registered</div><small class="text-muted">2 hrs</small></div>
                                         </div>
-                                    </a>
+                                    </a> 
                                 </div>
                             </li>
                         </ul>
@@ -162,13 +163,13 @@
                     <li class="dropdown dropdown-user">
                         <a class="nav-link dropdown-toggle link" data-toggle="dropdown">
                             <img src="{{url('backend/assets/img/admin-avatar.png')}}" />
-                            <span></span>Admin<i class="fa fa-angle-down m-l-5"></i></a>
+                            <span>{{session('name')}}</span><i class="fa fa-angle-down m-l-5"></i></a>
                         <ul class="dropdown-menu dropdown-menu-right">
                             <a class="dropdown-item" href="profile"><i class="fa fa-user"></i>Profile</a>
                             <a class="dropdown-item" href="profile"><i class="fa fa-cog"></i>Settings</a>
                             <a class="dropdown-item" href="javascript:;"><i class="fa fa-support"></i>Support</a>
                             <li class="dropdown-divider"></li>
-                            <a class="dropdown-item" href="login"><i class="fa fa-power-off"></i>Logout</a>
+                            <a class="dropdown-item" href=""><i class="fa fa-power-off"></i>Logout</a>
                         </ul>
                     </li>
                 </ul>
@@ -184,70 +185,71 @@
                         <img src="{{url('backend/assets/img/admin-avatar.png')}}" width="45px" />
                     </div>
                     <div class="admin-info">
-                        <div class="font-strong">James Brown</div><small>Administrator</small></div>
+                        <div class="font-strong">{{session('name')}}</div><small>Administrator</small></div>
                 </div>
                 <ul class="side-menu metismenu">
                     <li>
-                        <a class="active" href="index"><i class="sidebar-item-icon fa fa-th-large"></i>
+                        <a class="active" href="dashboard"><i class="sidebar-item-icon fa fa-th-large"></i>
                             <span class="nav-label">Dashboard</span>
                         </a>
                     </li>
                     <li class="heading">FEATURES</li>
                     <li>
                         <a href="javascript:;"><i class="sidebar-item-icon fa fa-bookmark"></i>
-                            <span class="nav-label">Basic UI</span><i class="fa fa-angle-left arrow"></i></a>
+                            <span class="nav-label">Category</span><i class="fa fa-angle-left arrow"></i></a>
                         <ul class="nav-2-level collapse">
                             <li>
-                                <a href="colors">Colors</a>
+                                <a href="add_category">Add Category</a>
                             </li>
                             <li>
-                                <a href="typography">Typography</a>
-                            </li>
-                            <li>
-                                <a href="panels">Panels</a>
-                            </li>
-                            <li>
-                                <a href="buttons">Buttons</a>
-                            </li>
-                            <li>
-                                <a href="tabs">Tabs</a>
-                            </li>
-                            <li>
-                                <a href="alerts_tooltips">Alerts &amp; Tooltips</a>
-                            </li>
-                            <li>
-                                <a href="badges_progress">Badges &amp; Progress</a>
-                            </li>
-                            <li>
-                                <a href="lists">List</a>
-                            </li>
-                            <li>
-                                <a href="cards">Card</a>
+                                <a href="manage_category">Manage Category</a>
                             </li>
                         </ul>
                     </li>
+
                     <li>
-                        <a href="javascript:;"><i class="sidebar-item-icon fa fa-edit"></i>
-                            <span class="nav-label">Forms</span><i class="fa fa-angle-left arrow"></i></a>
+                        <a href="javascript:;"><i class="sidebar-item-icon fa fa-bookmark"></i>
+                            <span class="nav-label">Product</span><i class="fa fa-angle-left arrow"></i></a>
                         <ul class="nav-2-level collapse">
                             <li>
-                                <a href="form_basic">Basic Forms</a>
+                                <a href="add_product">Add Product</a>
                             </li>
                             <li>
-                                <a href="form_advanced">Advanced Plugins</a>
-                            </li>
-                            <li>
-                                <a href="form_masks">Form input masks</a>
-                            </li>
-                            <li>
-                                <a href="form_validation">Form Validation</a>
-                            </li>
-                            <li>
-                                <a href="text_editors">Text Editors</a>
+                                <a href="manage_product">Manage Product</a>
                             </li>
                         </ul>
                     </li>
+
                     <li>
+                        <a href="javascript:;"><i class="sidebar-item-icon fa fa-bookmark"></i>
+                            <span class="nav-label">Blog</span><i class="fa fa-angle-left arrow"></i></a>
+                        <ul class="nav-2-level collapse">
+                            <li>
+                                <a href="#">Add Blog</a>
+                            </li>
+                            <li>
+                                <a href="#">Manage Blog</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a class="nav-link" href="view_contact_report" href="javascript:;"><i class="sidebar-item-icon fa fa-edit"></i>
+                            <span class="nav-label">View Contact Reports</span></a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="view_customer_report" href="javascript:;"><i class="sidebar-item-icon fa fa-edit"></i>
+                            <span class="nav-label">View Customer Reports</span></a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="#" href="javascript:;"><i class="sidebar-item-icon fa fa-edit"></i>
+                            <span class="nav-label">View Cart Reports</span></a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="#" href="javascript:;"><i class="sidebar-item-icon fa fa-edit"></i>
+                            <span class="nav-label">View Order Reports</span></a>
+                    </li>
+                    <!-- <li>
                         <a href="javascript:;"><i class="sidebar-item-icon fa fa-table"></i>
                             <span class="nav-label">Tables</span><i class="fa fa-angle-left arrow"></i></a>
                         <ul class="nav-2-level collapse">
@@ -258,8 +260,8 @@
                                 <a href="datatables">Datatables</a>
                             </li>
                         </ul>
-                    </li>
-                    <li>
+                     </li> -->
+                    <!-- <li>
                         <a href="javascript:;"><i class="sidebar-item-icon fa fa-bar-chart"></i>
                             <span class="nav-label">Charts</span><i class="fa fa-angle-left arrow"></i></a>
                         <ul class="nav-2-level collapse">
@@ -276,21 +278,8 @@
                                 <a href="charts_sparkline">Sparkline Charts</a>
                             </li>
                         </ul>
-                    </li>
-                    <li>
-                        <a href="javascript:;"><i class="sidebar-item-icon fa fa-map"></i>
-                            <span class="nav-label">Maps</span><i class="fa fa-angle-left arrow"></i></a>
-                        <ul class="nav-2-level collapse">
-                            <li>
-                                <a href="maps_vector">Vector maps</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="icons"><i class="sidebar-item-icon fa fa-smile-o"></i>
-                            <span class="nav-label">Icons</span>
-                        </a>
-                    </li>
+                    </li> --> -->
+                    
                     <li class="heading">PAGES</li>
                     <li>
                         <a href="javascript:;"><i class="sidebar-item-icon fa fa-envelope"></i>
@@ -342,27 +331,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="javascript:;"><i class="sidebar-item-icon fa fa-sitemap"></i>
-                            <span class="nav-label">Menu Levels</span><i class="fa fa-angle-left arrow"></i></a>
-                        <ul class="nav-2-level collapse">
-                            <li>
-                                <a href="javascript:;">Level 2</a>
-                            </li>
-                            <li>
-                                <a href="javascript:;">
-                                    <span class="nav-label">Level 2</span><i class="fa fa-angle-left arrow"></i></a>
-                                <ul class="nav-3-level collapse">
-                                    <li>
-                                        <a href="javascript:;">Level 3</a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;">Level 3</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
+                    
                 </ul>
             </div>
         </nav>
