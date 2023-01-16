@@ -38,8 +38,8 @@
                                         {
                                         if($c->id==$fetch->cate_id)
                                         {
-                                        ?>
-                                        <option value="<?php echo $c->cate_id?>" selected>
+                                        ?> 
+                                        <option value="<?php echo $c->id?>" selected>
                                                 <?php echo $c->cat_name?>
                                         </option>
                                         <?php   
@@ -47,7 +47,7 @@
                                         else
                                         {
                                         ?>
-                                        <option value="<?php echo $c->cate_id?>">
+                                        <option value="<?php echo $c->id?>">
                                                         <?php echo $c->cat_name?>
                                         </option>
                                         <?php
@@ -92,7 +92,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Product Multi Img</label>
                                         <div class="col-sm-10">
-                                      <input type="file" name="multi_img" class="form-control"/>
+                                      <input type="file" name="multi_img[]" class="form-control" multiple/>
                                       @foreach($arr_img as $multi_img)
                                       <img class="" src="{{url('backend/assets/img/upload/product/'.$multi_img)}}" width="40px" alt="">
                                         @endforeach  

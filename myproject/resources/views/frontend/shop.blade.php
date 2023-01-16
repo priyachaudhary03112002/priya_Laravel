@@ -33,10 +33,14 @@
 			?>
 					<div class="col-md-6 col-lg-3 ftco-animate">
 						<div class="product">
+						
 							<a href="product-single" class="img-prod"><img class="img-fluid" src="{{url('backend/assets/img/upload/product/'.$d->prod_img)}}" alt="Colorlib Template">
-								<span class="status">30%</span>
+							@if($d->status=="Out of Stock")	
+							<span class="status">{{$d->status}}</span>
+							@endif
 								<div class="overlay"></div>
 							</a>
+							
 							<div class="text py-3 pb-4 px-3 text-center">
 								<h3><a href="#">{{$d->prod_name}}</a></h3>
 								<div class="d-flex">
@@ -44,6 +48,7 @@
 										<p class="price"><span class="mr-2 price-dc">{{$d->main_price}} ₹</span><span class="price-sale">{{$d->dis_price}} ₹</span></p>
 									</div>
 								</div>
+								
 								<div class="bottom-area d-flex px-3">
 									<div class="m-auto d-flex">
 										<a href="#" class="add-to-cart d-flex justify-content-center align-items-center text-center">

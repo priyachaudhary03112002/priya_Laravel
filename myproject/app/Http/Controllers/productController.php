@@ -22,7 +22,8 @@ class productController extends Controller
 	   $category=category::all();	  // select * from
        return view('backend.add_product',['category'=>$category]);
     }
-    // show all in frontend
+   
+
     public function viewall()
     {        
 	   $product=product::all();	  // select * from
@@ -90,11 +91,22 @@ class productController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function manage_product()
+    public function manage_product(Request $request)
     {
-        $data=product::join('categories','products.cate_id','=','categories.id')
-		->get(['products.*','categories.cat_name']);	  
-       return view('backend.manage_product',['fetch'=>$data]);
+        $search=$request->search;
+        if($search!="")
+        {
+            $fetch=product::join('categories','products.cate_id','=','categories.id')
+            ->where('products.prod_name', 'LIKE' ,'%'.$search.'%')
+            ->orWhere('products.short_desc', 'LIKE' ,'%'.$search.'%')
+            ->get(['products.*','categories.cat_name']);
+        }
+        else
+        {
+            $fetch=product::join('categories','products.cate_id','=','categories.id')
+		->get(['products.*','categories.cat_name']);
+        }	  
+       return view('backend.manage_product',compact('fetch','search'));
     }
 
     /**
@@ -147,6 +159,20 @@ class productController extends Controller
                 unlink('backend/assets/img/upload/product/'.$old_file);
             }
 
+             // multiple img upload
+             $old_file1=$data->multi_img;
+            if($request->hasfile('multi_img'))
+              {
+                 foreach($request->file('multi_img') as $multi_img)
+                 {
+                     $name = time().rand(1000,9999).'_img.'.$multi_img->extension();
+                     $multi_img->move('backend/assets/img/upload/product/',$name);  
+                     $multi_imgarr[]=$name;  
+                 }
+                  $data->multi_img=implode(',',$multi_imgarr);
+                //  unlink('backend/assets/img/upload/product/'.$old_file1);
+             }
+
             $data->update();
             Alert::success('success', 'Update Success');
             return redirect('/manage_product');
@@ -161,8 +187,34 @@ class productController extends Controller
     public function destroy($id)
     {
         $data=product::find($id);
+        $old_file=$data->prod_img;
+        $old_file1=$data->multi_img;
 		$data->delete();
+        unlink('backend/assets/img/upload/product/'.$old_file);
+        // unlink('backend/assets/img/upload/product/'.$old_file1);
 		Alert::success('success', 'Delete Success');
 		return back();
     }
+
+    public function product_status($id)
+    {
+		$data=product::find($id);
+		$status=$data->status;
+		if($status=="Out of Stock")
+		{
+			$data->status="Stock";
+			$data->update();
+			Alert::success( 'In Stock');
+			return back();	
+			
+		}
+		else
+		{
+			$data->status="Out of Stock";
+			$data->update();
+			Alert::warning('Out Stock');
+			return back();	
+		}
+    }
+
 }

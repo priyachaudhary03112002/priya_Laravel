@@ -104,9 +104,15 @@ Route::get('/logout',[adminController::class,'logout']);
  Route::get('/add_product',[productController::class,'index']);
  Route::post('/add_product',[productController::class,'add_product']);
  Route::get('/manage_product',[productController::class,'manage_product']);
+ Route::post('/manage_product',[productController::class,'manage_product']);
+ 
  Route::get('/editproduct/{id}',[productController::class,'edit']);
  Route::post('/editproduct/{id}',[productController::class,'update']);
  Route::get('/deleteproduct/{id}',[productController::class,'destroy']);
+ Route::get('/product_status/{id}',[productController::class,'product_status']);
+ 
+//Route::post('/manage_product',[productController::class,'search']);
+
 
 Route::get('/dashboard', function () {
     return view('backend.dashboard');

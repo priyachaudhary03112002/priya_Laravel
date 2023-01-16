@@ -25,8 +25,7 @@
             <div style="overflow-x:auto;"> 
                 <table class="table">
                     <thead>
-                        <tr>
-                            
+                        <tr>                            
                             <th>Customer Id</th>
                             <th> Name</th>
                             <th>Username</th>

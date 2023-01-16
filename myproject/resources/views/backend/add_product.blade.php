@@ -25,7 +25,7 @@
                                     <a class="fullscreen-link"><i class="fa fa-expand"></i></a>
                                 </div>
                             </div>
-                            <div class="ibox-body">
+                          <div class="ibox-body">
                                 <form class="form-horizontal" method="post" action="{{url('/add_product')}}" enctype="multipart/form-data">
                                 @csrf
                                     <div class="form-group row">
