@@ -40,30 +40,42 @@ class photoController extends Controller
     public function add_gallery(Request $request)
     {   
         $data=new photo;
-		$data->photo_name=$request->photo_name;
+		$data->photo_name=$request->photo_name; 
 		
 		
 		// img upload
 		$photo=$request->file('photo');		
 		$photoname=time().'_img.'.$request->file('photo')->getClientOriginalExtension();
-		$photo->move('backend/images/upload/',$photoname);  
+		$photo->move('backend/assets/images/upload/',$photoname);  
 		$data->photo=$photoname; 
 
-        // $multi_imgarr=[];
-        // if($request->hasfile('multi_img'))
-        //  {
-        //     foreach($request->file('multi_img') as $multi_img)
-        //     {
-        //         $name = time().rand(1000,9999).'_img.'.$multi_img->extension();
-        //         $multi_img->move('backend/assets/img/upload/product/',$name);  
-        //         $multi_imgarr[]=$name;  
-        //     }
-        //      $data->multi_img=implode(',',$multi_imgarr);
-        //  }
+        $multi_photoarr=[];
+        if($request->hasfile('multi_photo'))
+         {
+            foreach($request->file('multi_photo') as $multi_photo)
+            {
+                $name = time().rand(1000,9999).'_img.'.$multi_photo->extension();
+                $multi_photo->move('backend/assets/images/upload/',$name);  
+                $multi_photoarr[]=$name;  
+            }
+             $data->multi_photo=implode(',',$multi_photoarr);
+         }
 
         $data->save();
 		Alert::success('success', 'Register Success');
 		return back();
+    }
+
+    function manage_gallery()
+	{
+		$photo=photo::all();
+        return view('backend.manage_gallery',['fetch'=>$photo]);
+	}
+
+    public function viewall()
+    {        
+	   $photo=photo::all();	  
+       return view('frontend.index',['data'=>$photo]);
     }
 
     /**

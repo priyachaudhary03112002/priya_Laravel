@@ -7,122 +7,31 @@
             <div class="amado-pro-catagory clearfix">
 
                 <!-- Single Catagory -->
-                <div class="single-products-catagory clearfix">
+                
+			@foreach($data as $d)
+			
+			     <div class="single-products-catagory clearfix">
                     <a href="shop">
-                        <img src="{{url('frontend/img/bg-img/h1.jpg')}}" alt="">
-                        <!-- Hover Content -->
-                        <div class="hover-content">
-                            <div class="line"></div>
-                            
-                            <h4>Modern Chair</h4>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Single Catagory -->
-                <div class="single-products-catagory clearfix">
-                    <a href="shop">
-                        <img src="{{url('frontend/img/bg-img/h2.jpg')}}" alt="">
-                        <!-- Hover Content -->
-                        <div class="hover-content">
-                            <div class="line"></div>
-                         
-                            <h4>Minimalistic Plant Pot</h4>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Single Catagory -->
-                <div class="single-products-catagory clearfix">
-                    <a href="shop">
-                        <img src="{{url('frontend/img/bg-img/h3.jpg')}}" alt="">
-                        <!-- Hover Content -->
-                        <div class="hover-content">
-                            <div class="line"></div>
+                        <img src="{{url('backend/assets/images/upload/'.$d->photo)}}" alt="">
+                        <?php
+                            $string_multi_photo=$d->multi_photo;
+                            $arr_multi_photo=explode(',',$string_multi_photo);
+                            ?>
+                            @foreach($arr_multi_photo as $multi_photo)
+                             
+                             <img src="{{url('backend/assets/images/upload/'.$multi_photo)}}" width="20px" alt="">
                            
-                            <h4>Modern Chair</h4>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Single Catagory -->
-                <div class="single-products-catagory clearfix">
-                    <a href="shop">
-                        <img src="{{url('frontend/img/bg-img/h4.jpg')}}" alt="">
-                        <!-- Hover Content -->
-                        <div class="hover-content">
-                            <div class="line"></div>
-                         
-                            <h4>Night Stand</h4>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Single Catagory -->
-                <div class="single-products-catagory clearfix">
-                    <a href="shop">
-                        <img src="{{url('frontend/img/bg-img/h5.jpg')}}" alt="">
+                            @endforeach
                         <!-- Hover Content -->
                         <div class="hover-content">
                             <div class="line"></div>
                             
-                            <h4>Plant Pot</h4>
+                            <h4>{{$d->photo_name}}</h4>
                         </div>
                     </a>
                 </div>
-
-                <!-- Single Catagory -->
-                <div class="single-products-catagory clearfix">
-                    <a href="shop">
-                        <img src="{{url('frontend/img/bg-img/h6.jpg')}}" alt="">
-                        <!-- Hover Content -->
-                        <div class="hover-content">
-                            <div class="line"></div>
-                           
-                            <h4>Small Table</h4>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Single Catagory -->
-                <div class="single-products-catagory clearfix">
-                    <a href="shop">
-                        <img src="{{url('frontend/img/bg-img/h7.jpg')}}" alt="">
-                        <!-- Hover Content -->
-                        <div class="hover-content">
-                            <div class="line"></div>
-                            
-                            <h4>Metallic Chair</h4>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Single Catagory -->
-                <div class="single-products-catagory clearfix">
-                    <a href="shop">
-                        <img src="{{url('frontend/img/bg-img/h8.jpg')}}" alt="">
-                        <!-- Hover Content -->
-                        <div class="hover-content">
-                            <div class="line"></div>
-                           
-                            <h4>Modern Rocking Chair</h4>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Single Catagory -->
-                <div class="single-products-catagory clearfix">
-                    <a href="shop">
-                        <img src="{{url('frontend/img/bg-img/h9.jpg')}}" alt="">
-                        <!-- Hover Content -->
-                        <div class="hover-content">
-                            <div class="line"></div>
-                            
-                            <h4>Home Deco</h4>
-                        </div>
-                    </a>
-                </div>
-            </div>
+                @endforeach
+               </div>
         </div>
         <!-- Product Catagories Area End -->
     </div>

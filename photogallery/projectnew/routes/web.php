@@ -22,14 +22,17 @@ Route::get('/add_gallery', function () {
     return view('backend.add_gallery');
 });
 
-Route::get('/manage_gallery', function () {
+Route::get('/manage_gallery', function () { 
     return view('backend.manage_gallery');
 });
 
 Route::post('/add_gallery',[photoController::class,'add_gallery']);
+Route::get('/manage_gallery',[photoController::class,'manage_gallery']);
 
 
 
 Route::get('/index', function () {
     return view('frontend.index');
 });
+
+Route::get('/index',[photoController::class,'viewall']);

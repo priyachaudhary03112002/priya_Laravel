@@ -16,31 +16,33 @@
                <table class="table">
                   <thead>
                     <tr>
-                      <th scope="col">#</th>
-                      <th scope="col">First</th>
-                      <th scope="col">Last</th>
-                      <th scope="col">Handle</th>
+                      <th scope="col">Photo Id</th>
+                      <th scope="col">Photo Name</th>
+                      <th scope="col">Image</th> 
+                      <th scope="col">Multi Img</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">2</th>
-                      <td>Jacob</td>
-                      <td>Thornton</td>
-                      <td>@fat</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">3</th>
-                      <td>Larry</td>
-                      <td>the Bird</td>
-                      <td>@twitter</td>
-                    </tr>
+                  @foreach($fetch as $d)
+                        <tr>
+                            <td>{{$d->id}}</td>
+                            <td>{{$d->photo_name}}</td>
+                           
+                            <td><img class="" src="{{url('backend/assets/images/upload/'.$d->photo)}}" width="30px" alt=""></td>
+                           
+                            <td>                            
+                          <?php
+                            $string_multi_photo=$d->multi_photo;
+                            $arr_multi_photo=explode(',',$string_multi_photo);
+                            ?>
+                            @foreach($arr_multi_photo as $multi_photo)
+                             
+                             <img src="{{url('backend/assets/images/upload/'.$multi_photo)}}" width="20px" alt="">
+                           
+                            @endforeach
+                            </td>
+</tr>
+                            @endforeach
                   </tbody>
                 </table>
             </div>
