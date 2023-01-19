@@ -34,7 +34,7 @@
 					<div class="col-md-6 col-lg-3 ftco-animate">
 						<div class="product">
 						
-							<a href="product-single" class="img-prod"><img class="img-fluid" src="{{url('backend/assets/img/upload/product/'.$d->prod_img)}}" alt="Colorlib Template">
+							<a href="{{url('single_product/'.$d->id)}}" class="img-prod"><img class="img-fluid" src="{{url('backend/assets/img/upload/product/'.$d->prod_img)}}" alt="Colorlib Template">
 							@if($d->status=="Out of Stock")	
 							<span class="status">{{$d->status}}</span>
 							@endif

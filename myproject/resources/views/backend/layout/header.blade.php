@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,6 +11,7 @@
     <link href="{{url('backend/assets/vendors/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet" />
     <link href="{{url('backend/assets/vendors/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" />
     <link href="{{url('backend/assets/vendors/themify-icons/css/themify-icons.css')}}" rel="stylesheet" />
+    <link href="{{url('backend/assets/vendors/DataTables/datatables.min.css')}}" rel="stylesheet" />
     <!-- PLUGINS STYLES-->
     <link href="{{url('backend/assets/vendors/jvectormap/jquery-jvectormap-2.0.3.css')}}" rel="stylesheet" />
     <!-- THEME STYLES-->
@@ -163,13 +165,13 @@
                     <li class="dropdown dropdown-user">
                         <a class="nav-link dropdown-toggle link" data-toggle="dropdown">
                             <img src="{{url('backend/assets/img/admin-avatar.png')}}" />
-                            <span>{{session('name')}}</span><i class="fa fa-angle-down m-l-5"></i></a>
+                            <span> {{session('name')}}</span><i class="fa fa-angle-down m-l-5"></i></a>
                         <ul class="dropdown-menu dropdown-menu-right">
                             <a class="dropdown-item" href="profile"><i class="fa fa-user"></i>Profile</a>
                             <a class="dropdown-item" href="profile"><i class="fa fa-cog"></i>Settings</a>
                             <a class="dropdown-item" href="javascript:;"><i class="fa fa-support"></i>Support</a>
                             <li class="dropdown-divider"></li>
-                            <a class="dropdown-item" href=""><i class="fa fa-power-off"></i>Logout</a>
+                            <a class="dropdown-item" href="logout"><i class="fa fa-power-off"></i>Logout</a>
                         </ul>
                     </li>
                 </ul>
@@ -249,37 +251,7 @@
                         <a class="nav-link" href="#" href="javascript:;"><i class="sidebar-item-icon fa fa-edit"></i>
                             <span class="nav-label">View Order Reports</span></a>
                     </li>
-                    <!-- <li>
-                        <a href="javascript:;"><i class="sidebar-item-icon fa fa-table"></i>
-                            <span class="nav-label">Tables</span><i class="fa fa-angle-left arrow"></i></a>
-                        <ul class="nav-2-level collapse">
-                            <li>
-                                <a href="table_basic">Basic Tables</a>
-                            </li>
-                            <li>
-                                <a href="datatables">Datatables</a>
-                            </li>
-                        </ul>
-                     </li> -->
-                    <!-- <li>
-                        <a href="javascript:;"><i class="sidebar-item-icon fa fa-bar-chart"></i>
-                            <span class="nav-label">Charts</span><i class="fa fa-angle-left arrow"></i></a>
-                        <ul class="nav-2-level collapse">
-                            <li>
-                                <a href="charts_flot">Flot Charts</a>
-                            </li>
-                            <li>
-                                <a href="charts_morris">Morris Charts</a>
-                            </li>
-                            <li>
-                                <a href="chartjs">Chart.js</a>
-                            </li>
-                            <li>
-                                <a href="charts_sparkline">Sparkline Charts</a>
-                            </li>
-                        </ul>
-                    </li> --> -->
-                    
+                                        
                     <li class="heading">PAGES</li>
                     <li>
                         <a href="javascript:;"><i class="sidebar-item-icon fa fa-envelope"></i>

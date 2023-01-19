@@ -26,14 +26,26 @@
                     <thead>
                         <tr>
                             
-                            <th>Contact Id</th>
+                            <th>Contact Id</th> 
                             <th> Name</th>
                             <th>Email</th>
                             <th>Subject</th>
                             <th>Message</th>
                         </tr>
                     </thead>
-                   
+                    <tbody>
+                        @foreach($fetch as $d)
+                        <tr>                            
+                            <td>{{$d->id}}</td>
+                            <td>{{$d->name}}</td>
+                            <td>{{$d->email}}</td>
+                            <td>{{$d->subject}}</td>
+                            <td>{{$d->message}}</td>                                                      
+                          </tr>
+                        @endforeach
+ 
+                    </tbody>
+
                 </table>
             </div>
         </div>

@@ -23,9 +23,15 @@
             @csrf
               <div class="form-group">
                 <input type="text" name="email" class="form-control" placeholder="Your Email">
+                @error('email')
+										<div class="alert alert-danger">{{ $message }}</div>
+									@enderror
               </div>
               <div class="form-group">
                 <input type="password" name="password" class="form-control" placeholder="Your Password">
+                @error('password')
+										<div class="alert alert-danger">{{ $message }}</div>
+									@enderror
               </div> 
               <div class="form-group">
                   <input type="checkbox" name="rem" class="p-4"> : Remember Me

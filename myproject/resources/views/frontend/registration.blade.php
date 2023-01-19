@@ -22,26 +22,41 @@
             <form action="{{url('/registration')}}" class="bg-white p-5 contact-form" method="post" enctype="multipart/form-data">
             @csrf
               <div class="form-group">
-                <input type="text" name="name" class="form-control" placeholder="Your Name">
-                <!-- @error('name')
+                <input type="text" name="name" value="{{old('name')}}" class="form-control" placeholder="Your Name">
+                @error('name')
 										<div class="alert alert-danger">{{ $message }}</div>
-									@enderror -->
+									@enderror
               </div>
               <div class="form-group">
-                <input type="text" name="username" class="form-control" placeholder="Your Username">
+                <input type="text" name="username" value="{{old('username')}}" class="form-control" placeholder="Your Username">
+                @error('username')
+										<div class="alert alert-danger">{{ $message }}</div>
+									@enderror
               </div>
               <div class="form-group">
-                <input type="password" name="password" class="form-control" placeholder="Your Password">
+                <input type="password" value="{{old('password')}}" name="password" class="form-control" placeholder="Your Password">
+                @error('password')
+										<div class="alert alert-danger">{{ $message }}</div>
+									@enderror
               </div>
               <div class="form-group">
-                <input type="text" name="email" class="form-control" placeholder="Your Email">
+                <input type="text" value="{{old('email')}}" name="email" class="form-control" placeholder="Your Email">
+                @error('email')
+										<div class="alert alert-danger">{{ $message }}</div>
+									@enderror
               </div>
-              <div class="form-group">
+              <!-- <div class="form-group">
                 <input type="number" name="mobile" class="form-control" placeholder="Mobile">
+                @error('number')
+										<div class="alert alert-danger">{{ $message }}</div>
+									@enderror
               </div>
               <div class="control-group">
               <input type="file" name="img" class="form-control" name="img">
-                 </div>
+              @error('file')
+										<div class="alert alert-danger">{{ $message }}</div>
+									@enderror     
+            </div>
                  <div class="control-group">
                         <label>Gender</label><br>
                         <div class="form-check-inline">
@@ -66,7 +81,7 @@
               </div>
               <div class="form-group">
                 <textarea name="address"  cols="30" rows="4" class="form-control" placeholder="Address"></textarea>
-              </div>
+              </div> -->
               <div class="form-group">
                 <input type="submit" value="Submit" name="submit" class="btn btn-primary py-2 px-4">
               </div>

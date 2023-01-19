@@ -4,7 +4,7 @@
 @section('main_section')
     <section id="home-section" class="hero">
 		  <div class="home-slider owl-carousel">
-	      <div class="slider-item" style="background-image: url({{url('frontend/images/back4.jpg')}});">
+	      <div class="slider-item" style="background-image: url({{url('frontend/images/bg1.jpg')}});">
 	      	<div class="overlay"></div>
 	        <div class="container">
 	          <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
@@ -377,7 +377,7 @@
     	</div>
     </section>
 		
-		<section class="ftco-section img" style="background-image: url({{url('frontend/images/back6.jpg')}});">
+		<section class="ftco-section img" style="background-image: url({{url('frontend/images/bg11.jpg')}});">
     	<div class="container">
 				<div class="row justify-content-end">
           <div class="col-md-6 heading-section ftco-animate deal-of-the-day ftco-animate">
@@ -491,19 +491,19 @@
     	<div class="container">
     		<div class="row">
     			<div class="col-sm ftco-animate">
-    				<a href="#" class="partner"><img src="{{url('frontend/images/partner-1.png')}}" class="img-fluid" alt="Colorlib Template"></a>
+    				<a href="#" class="partner"><img src="{{url('frontend/images/logo1.png')}}" class="img-fluid" alt="Colorlib Template"></a>
     			</div>
     			<div class="col-sm ftco-animate">
-    				<a href="#" class="partner"><img src="{{url('frontend/images/partner-2.png')}}" class="img-fluid" alt="Colorlib Template"></a>
+    				<a href="#" class="partner"><img src="{{url('frontend/images/logo2.png')}}" class="img-fluid" alt="Colorlib Template"></a>
     			</div>
     			<div class="col-sm ftco-animate">
-    				<a href="#" class="partner"><img src="{{url('frontend/images/partner-3.png')}}" class="img-fluid" alt="Colorlib Template"></a>
+    				<a href="#" class="partner"><img src="{{url('frontend/images/logo3.png')}}" class="img-fluid" alt="Colorlib Template"></a>
     			</div>
     			<div class="col-sm ftco-animate">
-    				<a href="#" class="partner"><img src="{{url('frontend/images/partner-4.png')}}" class="img-fluid" alt="Colorlib Template"></a>
+    				<a href="#" class="partner"><img src="{{url('frontend/images/logo4.png')}}" class="img-fluid" alt="Colorlib Template"></a>
     			</div>
     			<div class="col-sm ftco-animate">
-    				<a href="#" class="partner"><img src="{{url('frontend/images/partner-5.png')}}" class="img-fluid" alt="Colorlib Template"></a>
+    				<a href="#" class="partner"><img src="{{url('frontend/images/logo5.png')}}" class="img-fluid" alt="Colorlib Template"></a>
     			</div>
     		</div>
     	</div>

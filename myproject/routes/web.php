@@ -7,6 +7,7 @@ use App\Http\Controllers\customerController;
 use App\Http\Controllers\categoryController;
 use App\Http\Controllers\productController;
 use App\Http\Controllers\adminController;
+use App\Http\Controllers\contactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -76,12 +77,21 @@ Route::get('/login1', function () {
     return view('frontend.login1');
 });
 
+// Route::get('/profile', function () {
+//     return view('frontend.profile');
+// });
+
 Route::get('/view_customer_report',[customerController::class,'show']);
  
 Route::post('/registration',[customerController::class,'register']);
 
 Route::post('/login1',[customerController::class,'login']);
-Route::get('/logout',[customerController::class,'logout']);
+Route::get('/logout1',[customerController::class,'logout']);
+
+Route::post('/contact',[contactController::class,'contact']);
+Route::get('/view_contact_report',[contactController::class,'show']);
+
+Route::get('/single_product/{id}',[productController::class,'edit_product']);
 
  // Bakend routs 
 
@@ -111,7 +121,6 @@ Route::get('/logout',[adminController::class,'logout']);
  Route::get('/deleteproduct/{id}',[productController::class,'destroy']);
  Route::get('/product_status/{id}',[productController::class,'product_status']);
  
-//Route::post('/manage_product',[productController::class,'search']);
 
 
 Route::get('/dashboard', function () {
@@ -121,6 +130,8 @@ Route::get('/dashboard', function () {
 Route::get('/add_category', function () {
     return view('backend.add_category');
 });
+
+
 
 // Route::get('/manage_category', function () {
 //     return view('backend.manage_category');
@@ -134,9 +145,9 @@ Route::get('/add_category', function () {
 //     return view('backend.manage_product');
 // });
 
-Route::get('/view_contact_report', function () {
-    return view('backend.view_contact_report');
-});
+// Route::get('/view_contact_report', function () {
+//     return view('backend.view_contact_report');
+// });
 
 // Route::get('/view_customer_report', function () {
 //     return view('backend.view_customer_report');

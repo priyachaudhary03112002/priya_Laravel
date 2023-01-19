@@ -39,14 +39,13 @@ class customerController extends Controller
     public function register(Request $request)
     {
 
-        // $validated = $request->validate([
-        //     'name' => 'required|alpha',
-        //     'username' => 'required|unique:customers',
-        //     'password' => 'required|min:6',
-        //     'mobile'=>'required|numeric|digits:10',
-        //     'email'=>'required|xyz@gmail.com',
-        //     'file' => 'required|mimes:jpeg,png,jpg,gif,svg'
-        //     ]);
+        $validated = $request->validate([
+            'name' => 'required|alpha',
+            'username' => 'required|unique:customers',
+            'password' => 'required|min:3',
+            'email'=>'required|email'
+            // 'file' => 'required|mimes:jpeg,png,jpg,gif,svg'
+            ]);
 
 
         $data=new customer;
@@ -54,27 +53,41 @@ class customerController extends Controller
 		$data->username=$request->username;
 		$data->password=Hash::make($request->password);
         $data->email=$request->email;
-        $data->mobile=$request->mobile;
-        $data->address=$request->address;
-		$data->gender=$request->gender;
-		$data->lag=implode(",",$request->lag);
-		$data->birthdate =$request->birthdate ;
+        // $data->mobile=$request->mobile;
+        // $data->address=$request->address;
+		// $data->gender=$request->gender;
+		// $data->lag=implode(",",$request->lag);
+		// $data->birthdate =$request->birthdate ;
 		
 		
-		// img upload
-		$img=$request->file('img');		
-		$imgname=time().'_img.'.$request->file('img')->getClientOriginalExtension();
-		$img->move('frontend/images/upload/',$imgname);  // use move for move image in public/images
-		$data->img=$imgname; // name store in db
+		// // img upload
+		// $img=$request->file('img');		
+		// $imgname=time().'_img.'.$request->file('img')->getClientOriginalExtension();
+		// $img->move('frontend/images/upload/',$imgname);  // use move for move image in public/images
+		// $data->img=$imgname; // name store in db
 
-		$data->save();
-		Alert::success('success', 'Register Success');
+		$res=$data->save();
+		if($res)
+        {
+        Alert::success('success', 'Register Success');
 		return redirect('/login1');
+        }
+        else
+        {
+            echo "Not suucess";
+        }
     }
 
 
     function login(Request $request)
 	{
+        $validated = $request->validate([
+           
+            'password' => 'required',
+            'email'=>'required|email'
+           
+            ]);
+
 		$email=$request->email;
 		$data=customer::where('email','=',$email)->first();
         

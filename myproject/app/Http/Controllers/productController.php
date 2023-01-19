@@ -123,6 +123,14 @@ class productController extends Controller
         
     }
 
+    public function edit_product($id)
+    {
+        $product=product::all();
+            $data=product::where("id",'=',$id)->first();
+            return view('frontend.single_product',['product'=>$product,'fetch'=>$data]);
+        
+    }
+
     /**
      * Update the specified resource in storage.
      *

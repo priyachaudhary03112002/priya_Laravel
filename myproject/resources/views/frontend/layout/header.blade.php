@@ -66,31 +66,29 @@
 	          <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Shop</a>
               <div class="dropdown-menu" aria-labelledby="dropdown04">
-              	<a class="dropdown-item" href="shop">Shop</a>
-              	<a class="dropdown-item" href="wishlist">Wishlist</a>
-                <a class="dropdown-item" href="product-single">Single Product</a>
-                <a class="dropdown-item" href="cart">Cart</a>
-                <a class="dropdown-item" href="checkout">Checkout</a>
+              	<a class="dropdown-item" href="{{url('/shop')}}">Shop</a>
+                <a class="dropdown-item" href="{{url('/single_product')}}">Single Product</a>
+            
               </div>
-            </li>
-	          <li class="nav-item"><a href="about" class="nav-link">About</a></li>
-	          <li class="nav-item"><a href="blog" class="nav-link">Blog</a></li>
-	          <li class="nav-item"><a href="contact" class="nav-link">Contact</a></li>
+            </li> 
+	          <li class="nav-item"><a href="{{url('/about')}}" class="nav-link">About</a></li>
+	          <li class="nav-item"><a href="{{url('/blog')}}" class="nav-link">Blog</a></li>
+	          <li class="nav-item"><a href="{{url('/contact')}}" class="nav-link">Contact</a></li>
 			  <li class="nav-item cta cta-colored"><a href="cart" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>
 			  @if(session()->has('cust_id'))
 			  <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Welcome {{session('name')}}..!</a>
               <div class="dropdown-menu" aria-labelledby="dropdown04">
-              	<a class="dropdown-item" href="profile">profile</a>
-              	<a class="dropdown-item" href="wishlist">Wishlist</a>
-                <a class="dropdown-item" href="cart">Cart</a>
-                <a class="dropdown-item" href="checkout">Checkout</a>
-				<a class="dropdown-item" href="logout">Log Out</a>
+              	<a class="dropdown-item" href="{{url('/profile')}}">profile</a>
+              	<a class="dropdown-item" href="{{url('/wishlist')}}">Wishlist</a>
+                <a class="dropdown-item" href="{{url('/cart')}}">Cart</a>
+                <a class="dropdown-item" href="{{url('/checkout')}}">Checkout</a>
+				<a class="dropdown-item" href="{{url('/logout1')}}">Log Out</a>
               </div>
             </li>
 			@else
 						
-			<li class="nav-item"><a href="login1" class="nav-link">Login</a></li>
+			<li class="nav-item"><a href="{{url('/login1')}}" class="nav-link">Login</a></li>
 						@endif
 
 			  

@@ -89,7 +89,7 @@ class adminController extends Controller
 		session()->pull('admin_id');
 		session()->pull('email');
 		Alert::success('Congrats', 'You\'ve Successfully Logout');
-		return redirect('/index');
+		return redirect('/login');
 	}
 
     /**
