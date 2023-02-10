@@ -183,7 +183,7 @@
     						<h3><a href="#">SUGAR Prime Sublime </a></h3>
     						<div class="d-flex">
     							<div class="pricing">
-		    						<p class="price"><span>$120.00</span></p>
+		    						<p class="price"><span class="price-sale">$120.00</span></p>
 		    					</div>
 	    					</div>
     						<div class="bottom-area d-flex px-3">
@@ -211,7 +211,7 @@
     						<h3><a href="#">Face Foundation Stick</a></h3>
     						<div class="d-flex">
     							<div class="pricing">
-		    						<p class="price"><span>$120.00</span></p>
+		    						<p class="price"><span class="price-sale">$120.00</span></p>
 		    					</div>
 	    					</div>
     						<div class="bottom-area d-flex px-3">
@@ -239,7 +239,7 @@
     						<h3><a href="#">Face Palettee</a></h3>
     						<div class="d-flex">
     							<div class="pricing">
-		    						<p class="price"><span>$120.00</span></p>
+		    						<p class="price"><span class="price-sale">$120.00</span></p>
 		    					</div>
 	    					</div>
     						<div class="bottom-area d-flex px-3">
@@ -298,7 +298,7 @@
     						<h3><a href="#"> Matter Longwear Lipstick</a></h3>
     						<div class="d-flex">
     							<div class="pricing">
-		    						<p class="price"><span>$120.00</span></p>
+		    						<p class="price"><span class="price-sale">$120.00</span></p>
 		    					</div>
 	    					</div>
     						<div class="bottom-area d-flex px-3">
@@ -326,7 +326,7 @@
     						<h3><a href="#">Limitless Mascara</a></h3>
     						<div class="d-flex">
     							<div class="pricing">
-		    						<p class="price"><span>$120.00</span></p>
+		    						<p class="price"><span class="price-sale">$120.00</span></p>
 		    					</div>
 	    					</div>
     						<div class="bottom-area d-flex px-3">
@@ -354,7 +354,7 @@
     						<h3><a href="#"> Priming Moisturizer</a></h3>
     						<div class="d-flex">
     							<div class="pricing">
-		    						<p class="price"><span>$120.00</span></p>
+		    						<p class="price"><span class="price-sale">$120.00</span></p>
 		    					</div>
 	    					</div>
     						<div class="bottom-area d-flex px-3">

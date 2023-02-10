@@ -8,19 +8,25 @@
         <div class="brand">
             <a class="link" href="dashboard">AdminCAST</a>
         </div>
-        <form id="login-form" action="{{url('/login')}}" method="post">
+        <form id="login-form" action="{{url('/login')}}" method="post" style="background-image: url({{url('frontend/images/bk1.jpg')}})";>
         @csrf
             <h2 class="login-title">Log in</h2>
             <div class="form-group">
                 <div class="input-group-icon right">
                     <div class="input-icon"><i class="fa fa-envelope"></i></div>
-                    <input class="form-control" type="email" name="email" placeholder="Email" autocomplete="off">
+                    <input class="form-control" type="email" name="email" value="{{old('email')}}" placeholder="Email" autocomplete="off">
+                    @error('email')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
                 </div>
             </div>
             <div class="form-group">
                 <div class="input-group-icon right">
                     <div class="input-icon"><i class="fa fa-lock font-16"></i></div>
-                    <input class="form-control" type="password" name="password" placeholder="Password">
+                    <input class="form-control" type="password" value="{{old('password')}}" name="password" placeholder="Password">
+                    @error('password')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
                 </div>
             </div>
             <div class="form-group d-flex justify-content-between">

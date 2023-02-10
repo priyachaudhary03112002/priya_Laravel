@@ -28,6 +28,7 @@ class categoryController extends Controller
     {
         //
     }
+  
 
     public function add_category(Request $request)
     {

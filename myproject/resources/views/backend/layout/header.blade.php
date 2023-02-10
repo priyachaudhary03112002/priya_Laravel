@@ -244,7 +244,7 @@
                             <span class="nav-label">View Customer Reports</span></a>
                     </li>
                     <li>
-                        <a class="nav-link" href="#" href="javascript:;"><i class="sidebar-item-icon fa fa-edit"></i>
+                        <a class="nav-link" href="view_cart_report" href="javascript:;"><i class="sidebar-item-icon fa fa-edit"></i>
                             <span class="nav-label">View Cart Reports</span></a>
                     </li>
                     <li>

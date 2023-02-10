@@ -16,14 +16,15 @@
             <div class="page-content fade-in-up">
                 <div class="row">
                     <div class="col-lg-5 col-md-4">
-                        <div class="ibox">
+                        <div class="ibox" style="background-image: url({{url('frontend/images/bk9.jpg')}})">
                             <div class="ibox-body text-center">
                                 <div class="m-t-20">
                                     <img class="img-circle" src="{{url('backend/assets/img/upload/admin/'.$fetch->img)}}" width="100px" height="100px" alt="" />
                                 </div>
                                 <h5 class="font-strong m-b-10 m-t-10">Meet Your Self</h5>                                
                                 <div class="m-b-20 text-muted">Name:{{$fetch->name}}                               
-                                <div class="m-b-20 text-muted">Email: {{$fetch->email}}            
+                                <div class="m-b-20 text-muted">Email: {{$fetch->email}} 
+                                <div class="m-b-20 text-muted">Mobile:{{$fetch->mobile}}           
                              </div>
 						   
                             <button class="btn btn-info btn-rounded m-b-5"><a href="editprofile/{{$fetch->id}}"> Edit</button>

@@ -15,12 +15,16 @@
 
     <section class="ftco-section contact-section bg-light">
       <div class="container">
-      	<!-- <div class="row d-flex mb-5 contact-info"> -->          
+      	<div class="row d-flex mb-5 contact-info">     
           
         <div class="row block-9">
-          <div class="col-md-6 order-md-last d-flex">
-            <form action="{{url('/login1')}}" class="bg-white p-5 contact-form" method="post" enctype="multipart/form-data">
+          <div class="col-md-2">
+        </div>
+          <div class="col-md-8 order-md-last d-flex">
+            <form action="{{url('/login1')}}" class="bg-white p-5 contact-form" method="post" enctype="multipart/form-data" style="background-image: url({{url('frontend/images/bk2.jpg')}});">
+            <h2> Login Form </h2>
             @csrf
+            
               <div class="form-group">
                 <input type="text" name="email" class="form-control" placeholder="Your Email">
                 @error('email')
@@ -45,9 +49,9 @@
           
           </div>
 
-          <div class="col-md-6 d-flex">
+          <!-- <div class="col-md-6 d-flex">
           	<div id="map" class="bg-white"></div>
-          </div>
+          </div> -->
         </div>
       </div>
     </section>

@@ -31,6 +31,26 @@ class adminController extends Controller
         //
     }
 
+    function adminloginpage()
+	{
+		return view('backend.login');
+	}
+
+    function adminregisterpage()
+	{
+		return view('backend.register');
+	}
+    
+    function add_categorypage()
+	{
+		return view('backend.add_category');
+	}
+
+    function dashboard()
+	{
+		return view('backend.dashboard');
+	}
+
     /**
      * Store a newly created resource in storage.
      *
@@ -39,6 +59,12 @@ class adminController extends Controller
      */
     public function store(Request $request)
     {
+        $validated = $request->validate([
+            'name' => 'required|alpha',
+            'password' => 'required|min:3',
+            'email'=>'required|email'
+           ]);
+
         $data=new admin;
 		$data->name=$request->name;
 		$data->email=$request->email;
@@ -51,8 +77,13 @@ class adminController extends Controller
         
     }
 
-    function login(Request $request)
+    function adminlogin(Request $request)
 	{
+        $validated = $request->validate([
+            'password' => 'required|min:3',
+            'email'=>'required|email'
+           ]);
+
 		$email=$request->email;
 		$data=admin::where('email','=',$email)->first();
 		if($data)   // if(! $data || Hash::check($request->password,$data->password))
@@ -130,7 +161,7 @@ class adminController extends Controller
         $data=admin::find($id);
 		$data->name=$request->name;
 		$data->email=$request->email;
-		// $data->mobile=$request->mobile;
+		$data->mobile=$request->mobile;
 				
 		
 		// img upload

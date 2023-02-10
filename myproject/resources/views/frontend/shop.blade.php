@@ -19,7 +19,7 @@
     			<div class="col-md-10 mb-5 text-center">
     				<ul class="product-category">
     					<li><a href="#" class="active">All</a></li>
-    					<li><a href="skin">Skin</a></li>
+    					<li> <a href="skin">Skin</a></li>
     					<li><a href="#">Nails</a></li>
     					<li><a href="#">Spa</a></li>
     					<li><a href="makeup">Makeup</a></li>
@@ -48,18 +48,29 @@
 										<p class="price"><span class="mr-2 price-dc">{{$d->main_price}} ₹</span><span class="price-sale">{{$d->dis_price}} ₹</span></p>
 									</div>
 								</div>
-								
+							
 								<div class="bottom-area d-flex px-3">
 									<div class="m-auto d-flex">
-										<a href="#" class="add-to-cart d-flex justify-content-center align-items-center text-center">
+									<form action="{{url('shop/'.$d->id)}}" method="post" enctype="multipart/form-data">
+						@csrf
+							<input type="hidden" id="cust_id" name="cust_id" value="{{session('cust_id')}}">
+								<input type="hidden" id="product_id" name="product_id" value="{{$d->id}}">
+								<input type="hidden" id="qty" name="qty" value="1">
+							
+										<!-- <a href="#" class="add-to-cart d-flex justify-content-center align-items-center text-center">
 											<span><i class="ion-ios-menu"></i></span>
+										</a> --> 
+										<div class="m-auto d-flex">
+										<a><button class="cartbtn"><i class="ion-ios-cart"></i></button></a>
+										&nbsp
+										<!-- cartbtn -->
+										<a> <button class="cartbtn"><i class="ion-ios-heart"></i></button>
 										</a>
-										<a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
-											<span><i class="ion-ios-cart"></i></span>
-										</a>
-										<a href="#" class="heart d-flex justify-content-center align-items-center ">
+										</div>
+										<!-- <a href="#" class="heart d-flex justify-content-center align-items-center ">
 											<span><i class="ion-ios-heart"></i></span>
-										</a>
+										</a> -->
+									</form>
 									</div>
 								</div>
 							</div>

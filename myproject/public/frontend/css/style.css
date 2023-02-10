@@ -8011,7 +8011,7 @@ a {
   -webkit-transition: .3s all ease;
   -o-transition: .3s all ease;
   transition: .3s all ease;
-  color: #f2cbcb; }
+  color: #f79cb2; }
   a:hover, a:focus {
     text-decoration: none;
     color: black; }
@@ -8573,7 +8573,7 @@ h1, h2, h3, h4, h5,
   .img-2 .icon {
     width: 100px;
     height: 100px;
-    background: #82ae46;
+    background: #d98499;
     -webkit-animation: pulse 2s infinite;
     animation: pulse 2s infinite;
     -webkit-border-radius: 50%;
@@ -8602,7 +8602,7 @@ h1, h2, h3, h4, h5,
   font-family: "Lora", Georgia, serif;
   font-style: italic; }
   .deal-of-the-day h3 a {
-    color: #82ae46; }
+    color: #d98499; }
 
 .deal-of-the-day .price {
   font-weight: 500;
@@ -8619,7 +8619,7 @@ h1, h2, h3, h4, h5,
     font-size: 40px;
     font-weight: 500;
     border-left: 1px solid rgba(0, 0, 0, 0.05);
-    color: #82ae46; }
+    color: #d98499; }
     @media (max-width: 991.98px) {
       #timer .time {
         font-size: 30px; } }
@@ -9453,7 +9453,7 @@ textarea.form-control {
       border-radius: 50%;
       background: rgba(0, 0, 0, 0.2); }
       .testimony-section .owl-dots .owl-dot.active {
-        background: #82ae46; }
+        background: #e0898c; }
 
 .testimony-wrap {
   display: block;
@@ -9479,7 +9479,7 @@ textarea.form-control {
       -ms-border-radius: 50%;
       border-radius: 50%; }
       .testimony-wrap .user-img .quote i {
-        color: #82ae46; }
+        color: #e0898c; }
   .testimony-wrap .name {
     font-weight: 400;
     font-size: 18px;
@@ -9503,7 +9503,7 @@ textarea.form-control {
       content: '';
       width: 3px;
       height: 30px;
-      background: #82ae46; }
+      background: #e0898c; }
 
 .image-popup {
   cursor: -webkit-zoom-in;
@@ -9737,7 +9737,7 @@ textarea.form-control {
       border: 1px solid #e6e6e6;
       background: #fff; }
     .block-27 ul li.active a, .block-27 ul li.active span {
-      background: #82ae46;
+      background: #d98499;
       color: #fff;
       border: 1px solid transparent; }
 
@@ -10013,3 +10013,41 @@ textarea.form-control {
   100% {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -136px; } }
+    
+    /* .css-zwi5hv {
+    position: relative;
+    height: 50px;
+    width: 50px;
+    margin-bottom: 16px;
+    max-height: 50px !important;
+    cursor: pointer;
+    border-radius: 2px;
+    padding: 0.25rem;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgba(182,0,0,0.4);
+    }
+    .css-zwi5hv img {
+      max-height: 38px;
+      max-width: 38px;
+  } */
+  
+  .cartbtn {
+    background-color: #454545; 
+    border: none; 
+    color: white; 
+    padding: 10px 12px; 
+    font-size: 11px; 
+    cursor: pointer; 
+    box-sizing: border-box;
+    border-radius: 50px;
+  }
+  
+  /* Darker background on mouse-over */
+  /* .cartbtn:hover {
+    background-color: #454545;
+  } */
+  
+
+
+

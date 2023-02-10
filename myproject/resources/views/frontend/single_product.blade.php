@@ -17,8 +17,13 @@
     	<div class="container">
     		<div class="row">
     			<div class="col-lg-6 mb-5 ftco-animate">
+					<form action="{{url('single_product/'.$fetch->id)}}" method="post" enctype="multipart/form-data">
+						@csrf
     				<a href="{{url('backend/assets/img/upload/product/'.$fetch->prod_img)}}" class="image-popup"><img src="{{url('backend/assets/img/upload/product/'.$fetch->prod_img)}}" class="img-fluid" alt="Colorlib Template"></a>
-    			</div>
+					<div class="css-zwi5hv">
+							<img src="{{url('backend/assets/img/upload/product/'.$fetch->multi_img)}}" class="img-fluid" alt="Colorlib Template">
+                    </div>
+					</div>
     			<div class="col-lg-6 product-details pl-md-5 ftco-animate">
     				<h4>{{$fetch->prod_name}}</h4>
 					<h6>{{$fetch->short_desc}}</h6>
@@ -54,6 +59,8 @@
 	                </div>
 		            </div>
 							</div>
+							<input type="hidden" id="cust_id" name="cust_id" value="{{session('cust_id')}}">
+							<input type="hidden" id="product_id" name="product_id" value="{{$fetch->id}}">
 							<div class="w-100"></div>
 							<div class="input-group col-md-6 d-flex mb-3">
 	             	<span class="input-group-btn mr-2">
@@ -61,7 +68,7 @@
 	                   <i class="ion-ios-remove"></i>
 	                	</button>
 	            		</span>
-	             	<input type="text" id="quantity" name="quantity" class="form-control input-number" value="1" min="1" max="100">
+	             	<input type="text" id="quantity" name="qty" class="form-control input-number" value="1" min="1" max="100">
 	             	<span class="input-group-btn ml-2">
 	                	<button type="button" class="quantity-right-plus btn" data-type="plus" data-field="">
 	                     <i class="ion-ios-add"></i>
@@ -73,8 +80,11 @@
 	          		<p style="color: #000;">600 kg available</p>
 	          	</div>
           	</div>
-          	<p><a href="cart" class="btn btn-black py-3 px-5">Add to Cart</a></p>
-    			</div>
+          	<div class="form-group">
+                <input type="submit" value="Add to cart" name="submit" class="btn btn-primary py-2 px-4">
+              </div>
+</form>		
+		</div>
     		</div>
     	</div>
     </section>

@@ -30,6 +30,12 @@ class productController extends Controller
        return view('frontend.shop',['data'=>$product]);
     }
 
+    // public function skin_product()
+    // {
+    // $product=product::where("id",'=',$id)->first();
+    // return view('frontend.skin',['fetch'=>$product]);
+    // }
+
     /**
      * Show the form for creating a new resource.
      *

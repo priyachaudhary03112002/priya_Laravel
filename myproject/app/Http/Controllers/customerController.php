@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 use App\Models\customer;
+use App\Mail\welcomemail;
+use Mail;
 use Hash;
 use Alert;
+
 
 use Illuminate\Http\Request;
 
@@ -30,6 +33,16 @@ class customerController extends Controller
         //
     }
 
+    function loginpage()
+	{
+		return view('frontend.login1');
+	}
+
+    function registrationpage()
+	{
+		return view('frontend.registration');
+	}
+
     /**
      * Store a newly created resource in storage.
      *
@@ -47,12 +60,12 @@ class customerController extends Controller
             // 'file' => 'required|mimes:jpeg,png,jpg,gif,svg'
             ]);
 
-
+ 
         $data=new customer;
 		$data->name=$request->name;
 		$data->username=$request->username;
 		$data->password=Hash::make($request->password);
-        $data->email=$request->email;
+        $email=$data->email=$request->email;
         // $data->mobile=$request->mobile;
         // $data->address=$request->address;
 		// $data->gender=$request->gender;
@@ -65,8 +78,11 @@ class customerController extends Controller
 		// $imgname=time().'_img.'.$request->file('img')->getClientOriginalExtension();
 		// $img->move('frontend/images/upload/',$imgname);  // use move for move image in public/images
 		// $data->img=$imgname; // name store in db
-
 		$res=$data->save();
+        $data=['msg'=>"Register Success", 'sub'=>"Welcome To Cosmetic"];
+
+        Mail::to($email)->send(new welcomemail($data));
+
 		if($res)
         {
         Alert::success('success', 'Register Success');
@@ -138,6 +154,12 @@ class customerController extends Controller
         return view('backend.view_customer_report',['fetch'=>$customer]);
     }
 
+    public function profile_show() 
+    {
+       $data=customer::where("id",'=',session('cust_id'))->first();  		
+		return view('frontend.profile1',['fetch'=>$data]);
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -146,7 +168,8 @@ class customerController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data=customer::where("id",'=',$id)->first();
+            return view('frontend.editprofile1',['fetch'=>$data]);
     }
 
     /**
@@ -158,7 +181,30 @@ class customerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data=customer::find($id);
+		$data->name=$request->name;
+		$data->username=$request->username;
+        $data->email=$request->email;
+        $data->mobile=$request->mobile;
+        $data->address=$request->address;
+		$data->gender=$request->gender;
+		$data->lag=implode(",",$request->lag);
+		$data->birthdate=$request->birthdate ;	
+		
+		
+		// img upload
+		$old_file=$data->img;
+		if($request->hasFile('img'))
+		{
+			$img=$request->file('img');		
+			$imgname=time().'_img.'.$request->file('img')->getClientOriginalExtension();
+			$img->move('frontend/images/upload/',$imgname);  
+			$data->img=$imgname; 
+			unlink('frontend/images/upload/'.$old_file);
+		}
+		$data->update();
+		Alert::success('success', 'Update Success');
+		return redirect('/profile1');
     }
 
     /**

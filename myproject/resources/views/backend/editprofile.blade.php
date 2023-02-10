@@ -21,13 +21,13 @@
                 <input class="form-control" type="email" value="{{$fetch->email}}" name="email" placeholder="Email" autocomplete="off">
             </div>
 
-            <!-- <div class="form-group">
-                        <input class="form-control" type="number" name="mobile" placeholder=" mobile number">
-                    </div> -->
+            <div class="form-group">
+            <input type="number" name="mobile" value="{{$fetch->mobile}}" class="form-control" placeholder="Mobile">
+             </div>
 
             <div class="form-group">
             <input type="file" name="img" class="form-control"/>
-            <img src="{{url('backend/assets/img/upload/admin'.$fetch->img)}}" width="50px" alt="">
+            <img src="{{url('backend/assets/img/upload/admin/'.$fetch->img)}}" width="50px" alt="">
             </div>        
             <div class="form-group text-left">
                 <label class="ui-checkbox ui-checkbox-info">
