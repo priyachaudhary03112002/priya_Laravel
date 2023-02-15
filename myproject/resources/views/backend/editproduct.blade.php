@@ -18,7 +18,7 @@
                     
                     <div class="col-md-12">
                         <div class="ibox">
-                            <div class="ibox-head">
+                            <div class="ibox-head"> 
                                 <div class="ibox-title">Product Form</div>
                                 <div class="ibox-tools">
                                     <a class="ibox-collapse"><i class="fa fa-minus"></i></a>

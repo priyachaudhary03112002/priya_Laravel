@@ -119,7 +119,7 @@ class productController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Response 
      */
     public function edit($id)
     {
@@ -129,13 +129,13 @@ class productController extends Controller
         
     }
 
-    public function edit_product($id)
-    {
-        $product=product::all();
-            $data=product::where("id",'=',$id)->first();
-            return view('frontend.single_product',['product'=>$product,'fetch'=>$data]);
+    // public function edit_product($id)
+    // {
+    //     $product=product::all();
+    //         $data=product::where("id",'=',$id)->first();
+    //         return view('frontend.single_product',['product'=>$product,'fetch'=>$data]);
         
-    }
+    // }
 
     /**
      * Update the specified resource in storage.

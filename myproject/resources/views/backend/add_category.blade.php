@@ -16,7 +16,7 @@
             <div class="page-content fade-in-up">
                 <div class="row">
                     
-                    <div class="col-md-12">
+                    <div class="col-md-12"> 
                         <div class="ibox">
                             <div class="ibox-head">
                                 <div class="ibox-title">Category Form</div>

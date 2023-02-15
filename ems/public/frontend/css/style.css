@@ -1,0 +1,11 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.main{
+    padding: 59px;
+    border: 1px ridge;
+    margin: 40px;
+    
+}
