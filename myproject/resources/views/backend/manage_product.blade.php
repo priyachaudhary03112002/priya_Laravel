@@ -32,7 +32,7 @@
         <div class="ibox-body">
         <div class="table-responsive">
         <div style="overflow-x:auto;">
-            <table class="table">
+               <table class="table">
                  <thead>                        
                     <tr>
                             <th> Product Id </th>

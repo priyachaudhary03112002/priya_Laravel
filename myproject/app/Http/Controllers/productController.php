@@ -24,17 +24,20 @@ class productController extends Controller
     }
    
 
-    public function viewall()
+    public function viewall() 
     {        
-	   $product=product::all();	  // select * from
-       return view('frontend.shop',['data'=>$product]);
+	   $product=product::all();	
+       $category=category::all();	
+       return view('frontend.shop',['data'=>$product, 'cate'=>$category]);
     }
 
-    // public function skin_product()
-    // {
-    // $product=product::where("id",'=',$id)->first();
-    // return view('frontend.skin',['fetch'=>$product]);
-    // }
+    
+    public function product_category($cid) 
+    {       	   
+       $data=product::where("cate_id",'=',$cid)->first();	
+       return view('frontend.skin',['fetch'=>$data]);
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -128,15 +131,7 @@ class productController extends Controller
             return view('backend.editproduct',['category'=>$category,'fetch'=>$data]);
         
     }
-
-    // public function edit_product($id)
-    // {
-    //     $product=product::all();
-    //         $data=product::where("id",'=',$id)->first();
-    //         return view('frontend.single_product',['product'=>$product,'fetch'=>$data]);
-        
-    // }
-
+ 
     /**
      * Update the specified resource in storage.
      *

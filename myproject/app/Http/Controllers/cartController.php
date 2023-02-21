@@ -44,7 +44,7 @@ class cartController extends Controller
 		$data->product_id=$request->product_id ;
         $data->cust_id=$request->cust_id;
         $data->qty=$request->qty;
-       
+             
 	        
 		$data->save();
 		Alert::success('success', 'Product added to cart');
@@ -107,11 +107,11 @@ class cartController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete_cart($id)
     {        
         $data=cart::find($id);
         $data->delete();
-       Alert::success('success', 'Delete Success');
+        Alert::success('success', 'Delete Success');
 		return back();
     }
 }

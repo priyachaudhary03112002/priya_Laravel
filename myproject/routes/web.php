@@ -104,15 +104,16 @@ Route::get('/view_contact_report',[contactController::class,'show']);
 
 Route::post('/single_product/{id}',[cartController::class,'add_cart']);
 Route::get('/cart',[cartController::class,'manage_cart']);
-Route::get('/deleteiteams/{id}',[cartController::class,'destroy']);
+Route::get('/deleteiteams/{id}',[cartController::class,'delete_cart']);
 Route::get('/view_cart_report',[cartController::class,'show']);
 Route::post('/shop/{id}',[cartController::class,'add_cart']);
 
 Route::post('/shop/{id}',[wishlistController::class,'add_wishlist']);
 Route::get('/wishlist',[wishlistController::class,'manage_wishlist']);
-Route::get('/deleteiteams/{id}',[wishlistController::class,'destroy']);
+Route::get('/deletewishlist/{id}',[wishlistController::class,'destroy']);
 
 Route::get('/single_product/{id}',[productController::class,'edit_product']);
+Route::get('/skin/{id}',[productController::class,'product_category']);
 
  // Bakend routs 
 

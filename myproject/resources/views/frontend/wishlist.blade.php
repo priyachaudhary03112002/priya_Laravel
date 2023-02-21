@@ -32,7 +32,7 @@
 						    <tbody>
 							@foreach($fetch as $d)
 						      <tr class="text-center">
-						        <td class="product-remove"><a href="deleteiteams/{{$d->id}}"><span class="ion-ios-close"></span></a></td>
+						        <td class="product-remove"><a href="deletewishlist/{{$d->id}}"><span class="ion-ios-close"></span></a></td>
 						        
 						        <td class="image-prod"><img class="" src="{{url('backend/assets/img/upload/product/'.$d->prod_img)}}" width="90px" alt=""></td>
 						        

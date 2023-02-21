@@ -103,7 +103,7 @@ class wishlistController extends Controller
     {
         $data=wishlist::find($id);
         $data->delete();
-       Alert::success('success', 'Delete Success');
+        Alert::success('success', 'Delete Success');
 		return back();
     }
 }

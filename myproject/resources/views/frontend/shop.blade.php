@@ -13,16 +13,15 @@
       </div>
     </div>
 
-    <section class="ftco-section">
+    <section class="ftco-section"> 
     	<div class="container">
     		<div class="row justify-content-center">
     			<div class="col-md-10 mb-5 text-center">
     				<ul class="product-category">
     					<li><a href="#" class="active">All</a></li>
-    					<li> <a href="skin">Skin</a></li>
-    					<li><a href="#">Nails</a></li>
-    					<li><a href="#">Spa</a></li>
-    					<li><a href="makeup">Makeup</a></li>
+						@foreach($cate as $c)
+    					<li> <a href="skin/{{$c->id}}">{{$c->cat_name}}</a></li>
+    					@endforeach
     				</ul>
     			</div>
     		</div>

@@ -6,7 +6,7 @@
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
           <div class="col-md-9 ftco-animate text-center">
-          	<p class="breadcrumbs"><span class="mr-2"><a href="index">Home</a></span> <span>Products</span></p>
+          	<p class="breadcrumbs"><span class="mr-2"><a href="{{url('/index')}}">Home</a></span> <span>Products</span></p>
             <h1 class="mb-0 bread">Products</h1>
           </div>
         </div>
@@ -18,27 +18,30 @@
     		<div class="row justify-content-center">
     			<div class="col-md-10 mb-5 text-center">
     				<ul class="product-category">
-    					<li><a href="{{url('/shop')}}" class="">All</a></li>
+    					<li><a href="#" class="">All</a></li>
     					<li><a href="#">Skin</a></li>
     					<li><a href="#">Nails</a></li>
     					<li><a href="#">Spa</a></li>
     					<li><a href="makeup">Makeup</a></li>
-    				</ul>
+    				</ul> 
     			</div>
     		</div>
 			
     		<div class="row">
+				
+							
+				
     			<div class="col-md-6 col-lg-3 ftco-animate">
     				<div class="product">
-    					<a href="#" class="img-prod"><img class="img-fluid" src="{{url('frontend/images/sk1.jpg')}}" alt="Colorlib Template">
+    					<a href="#" class="img-prod"><img class="img-fluid" src="{{url('backend/assets/img/upload/product/'.$fetch->prod_img)}}" alt="Colorlib Template">
     						<span class="status">20%</span>
     						<div class="overlay"></div>
     					</a>
     					<div class="text py-3 pb-4 px-3 text-center">
-    						<h3><a href="#">Virgin Coconut Oil</a></h3>
+    						<h3><a href="#">{{$fetch->prod_name}}</a></h3>
     						<div class="d-flex">
     							<div class="pricing">
-		    						<p class="price"><span class="mr-2 price-dc">MRP:₹395</span><span class="price-sale">₹316</span></p>
+		    						<p class="price"><span class="mr-2 price-dc">{{$fetch->main_price}} ₹</span><span class="price-sale">{{$fetch->dis_price}} ₹</span></p>
 		    					</div>
 	    					</div>
 	    					<div class="bottom-area d-flex px-3">
@@ -57,6 +60,7 @@
     					</div>
     				</div>
     			</div>
+				
 		</form>
     			
     			

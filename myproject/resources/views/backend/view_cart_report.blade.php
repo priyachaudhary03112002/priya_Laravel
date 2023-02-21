@@ -28,7 +28,7 @@
                             
                             <th>Cart Id</th> 
                             <th>Product Id</th>
-                            <th>Custt Id</th>
+                            <th>Cust Id</th>
                             <th>Qty</th>
                            </tr>
                     </thead>
