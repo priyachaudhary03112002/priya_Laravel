@@ -31,7 +31,7 @@
 	          <div class="pb-md-5">
 	          	<p>We have skincare, body, wellbeing products and amazing frangrance range. All made with love in France.</p>
 							<p>Winters can be a real drag to deal with. Apart from being a big mood bummer, cold weather tends to aggravate not just dry skin but scalp issues too. Yep, the dreaded winter dandruff. All thanks to the biting chill, cold air and dipping moisture, the infamous Malassezia fungus wreaks havoc on our scalps.</p>
-							<p><a href="#" class="btn btn-primary">Shop now</a></p>
+							<p><a href="{{url('shop')}}" class="btn btn-primary">Shop now</a></p>
 						</div>
 					</div>
 				</div>

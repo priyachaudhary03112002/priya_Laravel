@@ -18,55 +18,65 @@
     		<div class="row justify-content-center">
     			<div class="col-md-10 mb-5 text-center">
     				<ul class="product-category">
-    					<li><a href="#" class="">All</a></li>
-    					<li><a href="#">Skin</a></li>
-    					<li><a href="#">Nails</a></li>
-    					<li><a href="#">Spa</a></li>
-    					<li><a href="makeup">Makeup</a></li>
+    					<li><a href="{{url('/shop')}}" class="">All</a></li>
+    					@foreach($cate as $c)
+    					<li> <a href="{{url('/product_page/'.$c->id)}}">{{$c->cat_name}}</a></li>
+    					@endforeach
     				</ul> 
     			</div>
     		</div>
 			
     		<div class="row">
-				
+			
+			@foreach($fetch as $d)
+			
+					<div class="col-md-6 col-lg-3 ftco-animate">
+						<div class="product">
+						
+							<a href="{{url('single_product/'.$d->id)}}" class="img-prod"><img class="img-fluid" src="{{url('backend/assets/img/upload/product/'.$d->prod_img)}}" alt="Colorlib Template">
+							@if($d->status=="Out of Stock")	
+							<span class="status">{{$d->status}}</span>
+							@endif
+								<div class="overlay"></div>
+							</a>
 							
-				
-    			<div class="col-md-6 col-lg-3 ftco-animate">
-    				<div class="product">
-    					<a href="#" class="img-prod"><img class="img-fluid" src="{{url('backend/assets/img/upload/product/'.$fetch->prod_img)}}" alt="Colorlib Template">
-    						<span class="status">20%</span>
-    						<div class="overlay"></div>
-    					</a>
-    					<div class="text py-3 pb-4 px-3 text-center">
-    						<h3><a href="#">{{$fetch->prod_name}}</a></h3>
-    						<div class="d-flex">
-    							<div class="pricing">
-		    						<p class="price"><span class="mr-2 price-dc">{{$fetch->main_price}} ₹</span><span class="price-sale">{{$fetch->dis_price}} ₹</span></p>
-		    					</div>
-	    					</div>
-	    					<div class="bottom-area d-flex px-3">
-	    						<div class="m-auto d-flex">
-	    							<a href="#" class="add-to-cart d-flex justify-content-center align-items-center text-center">
-	    								<span><i class="ion-ios-menu"></i></span>
-	    							</a>
-	    							<a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
-	    								<span><i class="ion-ios-cart"></i></span>
-	    							</a>
-	    							<a href="#" class="heart d-flex justify-content-center align-items-center ">
-	    								<span><i class="ion-ios-heart"></i></span>
-	    							</a>
-    							</div>
-    						</div>
-    					</div>
-    				</div>
+							<div class="text py-3 pb-4 px-3 text-center">
+								<h3><a href="#">{{$d->prod_name}}</a></h3>
+								<div class="d-flex">
+									<div class="pricing">
+										<p class="price"><span class="mr-2 price-dc">{{$d->main_price}} ₹</span><span class="price-sale">{{$d->dis_price}} ₹</span></p>
+									</div>
+								</div>
+							
+								<div class="bottom-area d-flex px-3">
+									<div class="m-auto d-flex">
+									<form action="{{url('shop/'.$d->id)}}" method="post" enctype="multipart/form-data">
+						@csrf
+							<input type="hidden" id="cust_id" name="cust_id" value="{{session('cust_id')}}">
+								<input type="hidden" id="product_id" name="product_id" value="{{$d->id}}">
+								<input type="hidden" id="qty" name="qty" value="1">
+							
+										<!-- <a href="#" class="add-to-cart d-flex justify-content-center align-items-center text-center">
+											<span><i class="ion-ios-menu"></i></span>
+										</a> --> 
+										<div class="m-auto d-flex">
+										<a><button class="cartbtn"><i class="ion-ios-cart"></i></button></a>
+										&nbsp
+										<!-- cartbtn -->
+										<a> <button class="cartbtn"><i class="ion-ios-heart"></i></button>
+										</a>
+										</div>
+										<!-- <a href="#" class="heart d-flex justify-content-center align-items-center ">
+											<span><i class="ion-ios-heart"></i></span>
+										</a> -->
+									</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				@endforeach
     			</div>
-				
-		</form>
-    			
-    			
-    			
-    		
-    			
     		</div>
     		<div class="row mt-5">
           <div class="col text-center">

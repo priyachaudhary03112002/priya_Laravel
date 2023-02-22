@@ -57,9 +57,6 @@ Route::get('/product-single', function () {
     return view('frontend.product-single');
 });
 
-Route::get('/shop',[productController::class,'viewall']);
-// Route::get('/skin',[productController::class,'skin_product']);
-
 Route::get('/skin', function () {
     return view('frontend.skin');
 });
@@ -83,8 +80,11 @@ Route::get('/profile1', function () {
     return view('frontend.profile1');
 });
 
-Route::get('/view_customer_report',[customerController::class,'show']);
+Route::get('/shop',[productController::class,'viewall']);
+Route::get('/index',[productController::class,'raindom_product']);
+Route::get('/',[productController::class,'raindom_product']);
 
+Route::get('/view_customer_report',[customerController::class,'show']);
 
 Route::group(['middleware'=>['beforelogin']],function(){
 Route::post('/registration',[customerController::class,'register']);
@@ -112,8 +112,8 @@ Route::post('/shop/{id}',[wishlistController::class,'add_wishlist']);
 Route::get('/wishlist',[wishlistController::class,'manage_wishlist']);
 Route::get('/deletewishlist/{id}',[wishlistController::class,'destroy']);
 
-Route::get('/single_product/{id}',[productController::class,'edit_product']);
-Route::get('/skin/{id}',[productController::class,'product_category']);
+Route::get('/single_product/{id}',[productController::class,'singleproduct_edit']);
+Route::get('/product_page/{id}',[productController::class,'product_category']);
 
  // Bakend routs 
 

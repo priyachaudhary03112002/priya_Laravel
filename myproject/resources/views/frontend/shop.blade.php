@@ -20,7 +20,7 @@
     				<ul class="product-category">
     					<li><a href="#" class="active">All</a></li>
 						@foreach($cate as $c)
-    					<li> <a href="skin/{{$c->id}}">{{$c->cat_name}}</a></li>
+    					<li> <a href="{{url('/product_page/'.$c->id)}}">{{$c->cat_name}}</a></li>
     					@endforeach
     				</ul>
     			</div>
@@ -50,26 +50,31 @@
 							
 								<div class="bottom-area d-flex px-3">
 									<div class="m-auto d-flex">
-									<form action="{{url('shop/'.$d->id)}}" method="post" enctype="multipart/form-data">
-						@csrf
-							<input type="hidden" id="cust_id" name="cust_id" value="{{session('cust_id')}}">
-								<input type="hidden" id="product_id" name="product_id" value="{{$d->id}}">
-								<input type="hidden" id="qty" name="qty" value="1">
+										<form action="{{url('single_product/'.$d->id)}}" method="post" enctype="multipart/form-data">
+											@csrf
+											<input type="hidden" id="cust_id" name="cust_id" value="{{session('cust_id')}}">
+											<input type="hidden" id="product_id" name="product_id" value="{{$d->id}}">
+											<input type="hidden" id="qty" name="qty" value="1">
 							
 										<!-- <a href="#" class="add-to-cart d-flex justify-content-center align-items-center text-center">
 											<span><i class="ion-ios-menu"></i></span>
 										</a> --> 
 										<div class="m-auto d-flex">
-										<a><button class="cartbtn"><i class="ion-ios-cart"></i></button></a>
+											<a><button class="cartbtn"><i class="ion-ios-cart"></i></button></a>
+										</form>
 										&nbsp
-										<!-- cartbtn -->
-										<a> <button class="cartbtn"><i class="ion-ios-heart"></i></button>
-										</a>
+										<form action="{{url('shop/'.$d->id)}}" method="post" enctype="multipart/form-data">
+										@csrf
+											<input type="hidden" id="cust_id" name="cust_id" value="{{session('cust_id')}}">
+											<input type="hidden" id="product_id" name="product_id" value="{{$d->id}}">
+											<input type="hidden" id="qty" name="qty" value="1">
+										<a> <button class="cartbtn"><i class="ion-ios-heart"></i></button></a>
+										</form>
 										</div>
 										<!-- <a href="#" class="heart d-flex justify-content-center align-items-center ">
 											<span><i class="ion-ios-heart"></i></span>
 										</a> -->
-									</form>
+									
 									</div>
 								</div>
 							</div>

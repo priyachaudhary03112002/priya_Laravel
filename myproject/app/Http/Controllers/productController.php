@@ -31,11 +31,18 @@ class productController extends Controller
        return view('frontend.shop',['data'=>$product, 'cate'=>$category]);
     }
 
+    public function raindom_product() 
+    {        
+	   $data=product::inRandomOrder()->limit(4)->get();	
+       return view('frontend.index',['data'=>$data]);
+       return view('frontend./',['data'=>$data]);
+    }
     
     public function product_category($cid) 
     {       	   
-       $data=product::where("cate_id",'=',$cid)->first();	
-       return view('frontend.skin',['fetch'=>$data]);
+        $category=category::all();	
+       $data=product::where("cate_id",'=',$cid)->get();	
+       return view('frontend.product_page',['fetch'=>$data, 'cate'=>$category]);
     }
 
 
@@ -131,6 +138,14 @@ class productController extends Controller
             return view('backend.editproduct',['category'=>$category,'fetch'=>$data]);
         
     }
+
+    public function singleproduct_edit($id)
+    {
+        $category=category::all();
+            $data=product::where("id",'=',$id)->first();
+            return view('frontend.single_product',['category'=>$category,'fetch'=>$data]);
+    }
+
  
     /**
      * Update the specified resource in storage.

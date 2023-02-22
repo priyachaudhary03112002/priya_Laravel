@@ -20,9 +20,7 @@
 					<form action="{{url('single_product/'.$fetch->id)}}" method="post" enctype="multipart/form-data">
 						@csrf
     				<a href="{{url('backend/assets/img/upload/product/'.$fetch->prod_img)}}" class="image-popup"><img src="{{url('backend/assets/img/upload/product/'.$fetch->prod_img)}}" class="img-fluid" alt="Colorlib Template"></a>
-					<div class="css-zwi5hv">
-							<img src="{{url('backend/assets/img/upload/product/'.$fetch->multi_img)}}" class="img-fluid" alt="Colorlib Template">
-                    </div>
+					
 					</div>
     			<div class="col-lg-6 product-details pl-md-5 ftco-animate">
     				<h4>{{$fetch->prod_name}}</h4>

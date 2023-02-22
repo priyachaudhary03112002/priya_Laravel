@@ -50,7 +50,7 @@
 					          	</div>
 					          </td>
 						       
-						        <!-- <td class="total">{{($d['qty'] * $d['dis_price'])}}</td> -->
+						        <td class="total">{{($d['qty'] * $d['dis_price'])}}</td>
 								
 						      </tr><!-- END TR-->
 
