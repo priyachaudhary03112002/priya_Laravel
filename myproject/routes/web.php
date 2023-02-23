@@ -49,10 +49,6 @@ Route::get('/checkout', function () {
     return view('frontend.checkout');
 });
 
-Route::get('/contact', function () {
-    return view('frontend.contact');
-});
-
 Route::get('/product-single', function () {
     return view('frontend.product-single');
 });
@@ -99,7 +95,11 @@ Route::get('/editprofile1/{id}',[customerController::class,'edit']);
 Route::post('/editprofile1/{id}',[customerController::class,'update']);
 Route::get('/logout1',[customerController::class,'logout']);
 });
-Route::post('/contact',[contactController::class,'contact']);
+
+Route::get('/contact', function () {
+    return view('frontend.contact');
+});
+Route::post('/postcontact',[contactController::class,'contact']);
 Route::get('/view_contact_report',[contactController::class,'show']);
 
 Route::post('/single_product/{id}',[cartController::class,'add_cart']);

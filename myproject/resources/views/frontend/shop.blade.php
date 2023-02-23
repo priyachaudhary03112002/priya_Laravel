@@ -71,9 +71,7 @@
 										<a> <button class="cartbtn"><i class="ion-ios-heart"></i></button></a>
 										</form>
 										</div>
-										<!-- <a href="#" class="heart d-flex justify-content-center align-items-center ">
-											<span><i class="ion-ios-heart"></i></span>
-										</a> -->
+										
 									
 									</div>
 								</div>

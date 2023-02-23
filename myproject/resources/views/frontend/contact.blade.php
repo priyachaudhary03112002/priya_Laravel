@@ -40,7 +40,7 @@
         </div>
         <div class="row block-9">
           <div class="col-md-6 order-md-last d-flex">
-            <form action="{{url('/contact')}}" class="bg-white p-5 contact-form" method="post" enctype="multipart/form-data">
+            <form action="{{url('/postcontact')}}" class="bg-white p-5 contact-form" method="post" enctype="multipart/form-data">
                @csrf
               <div class="form-group">
                 <input type="text" class="form-control" name="name" placeholder="Your Name">

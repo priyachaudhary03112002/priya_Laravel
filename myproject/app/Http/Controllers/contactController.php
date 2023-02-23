@@ -45,7 +45,7 @@ class contactController extends Controller
         
         $data->save();
 		Alert::success('success', 'contact Success');
-		return redirect();
+		return redirect()->back();
        
     }
 
