@@ -116,12 +116,11 @@
                                    <div class="form-group row">
                                         <div class="col-sm-10 ml-sm-auto">
                                             <button class="btn btn-info" name="submit" type="submit">Save</button>
+                                            &nbsp
+                                            <a href="{{url('/manage_product')}}" class="btn btn-secondary">Back</a>
                                         </div>
                                     </div>
-                                    <div class="form-group row">
-                                    <div class="col-sm-10 ml-sm-auto">
-									<a href="{{url('/manage_product')}}">Back</a>
-                                    </div>
+                                    
 								</div>
                                 </form>
                             </div>

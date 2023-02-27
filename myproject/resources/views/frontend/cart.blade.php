@@ -46,8 +46,10 @@
 						        
 						        <td class="quantity">
 						        	<div class="input-group mb-3">
+									<button>-</button>
 					             	<input type="text" name="qty" class="quantity form-control input-number" value="{{$d->qty}}" min="1" max="100">
-					          	</div>
+					          	<button>+</button>
+								</div>
 					          </td>
 						       
 						        <td class="total">{{($d['qty'] * $d['dis_price'])}}</td>

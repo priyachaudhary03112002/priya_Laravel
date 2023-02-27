@@ -227,10 +227,10 @@
                             <span class="nav-label">Blog</span><i class="fa fa-angle-left arrow"></i></a>
                         <ul class="nav-2-level collapse">
                             <li>
-                                <a href="#">Add Blog</a>
+                                <a href="add_blog">Add Blog</a>
                             </li>
                             <li>
-                                <a href="#">Manage Blog</a>
+                                <a href="manage_blog">Manage Blog</a>
                             </li>
                         </ul>
                     </li>

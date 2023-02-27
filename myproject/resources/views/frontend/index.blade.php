@@ -1,5 +1,5 @@
 
-@extends('frontend.layout.main')
+@extends('frontend.layout.main',['total_cart'=>$total_cart]);
 
 @section('main_section')
     <section id="home-section" class="hero">
@@ -163,18 +163,20 @@
 	    					</div>
 	    				<div class="bottom-area d-flex px-3">
 	    					<div class="m-auto d-flex">
+                <a href="#" class="add-to-cart d-flex justify-content-center align-items-center text-center">
+	    								<span><i class="ion-ios-menu"></i></span>
+	    							</a>
+                    &nbsp
                   <form action="{{url('single_product/'.$d->id)}}" method="post" enctype="multipart/form-data">
 											@csrf
 											<input type="hidden" id="cust_id" name="cust_id" value="{{session('cust_id')}}">
 											<input type="hidden" id="product_id" name="product_id" value="{{$d->id}}">
 											<input type="hidden" id="qty" name="qty" value="1">
-							
-	    							<!-- <a href="#" class="add-to-cart d-flex justify-content-center align-items-center text-center">
-	    								<span><i class="ion-ios-menu"></i></span>
-	    							</a> -->
+			    					
                     <div class="m-auto d-flex">
 											<a><button class="cartbtn"><i class="ion-ios-cart"></i></button></a>
                     </form>
+                    &nbsp
                     <form action="{{url('index/'.$d->id)}}" method="post" enctype="multipart/form-data">
 										@csrf
 											<input type="hidden" id="cust_id" name="cust_id" value="{{session('cust_id')}}">
@@ -183,7 +185,7 @@
                       <div class="m-auto d-flex">
 											<a><button class="cartbtn"><i class="ion-ios-heart"></i></button></a>
                     </form>
-</div>
+                  </div>
               </div>
     							</div>
     						</div>
@@ -201,7 +203,7 @@
           <div class="col-md-6 heading-section ftco-animate deal-of-the-day ftco-animate">
           	<span class="subheading">Best Price For You</span>
             <h2 class="mb-4">Deal of the day</h2>
-            <p>So get ready to dive into the world of SUGAR Cosmetics and rule the world, one look at a time!</p>
+            <p>So get ready to dive into the world of Cosmetics and rule the world, one look at a time!</p>
             <h3><a href="#">cosmetic</a></h3>
             <span class="price">$10 <a href="#">now $5 only</a></span>
             <div id="timer" class="d-flex mt-5">

@@ -16,112 +16,28 @@
 
     <section class="ftco-section ftco-degree-bg">
       <div class="container">
-        <div class="row">
+        <div class="row"> 
           <div class="col-lg-8 ftco-animate">
-						<div class="row">
+				<div class="row">
+						@foreach($data as $d)
 							<div class="col-md-12 d-flex ftco-animate">
 		            <div class="blog-entry align-self-stretch d-md-flex">
-		              <a href="blog-single" class="block-20" style="background-image: url({{url('frontend/images/img1.jpg')}});">
+		              <a href="{{url('blog-single/'.$d->id)}}" class="block-20" ><img class="img-fluid" src="{{url('backend/assets/img/upload/blog/'.$d->img)}}" alt="Colorlib Template">
 		              </a>
 		              <div class="text d-block pl-md-4">
 		              	<div class="meta mb-3">
-		                  <div><a href="#">July 20, 2019</a></div>
+		                  <div><a href="#">March 01, 2023</a></div>
 		                  <div><a href="#">Admin</a></div>
 		                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
 		                </div>
-		                <h3 class="heading"><a href="#">15 Tips For A Perfect Makup</a></h3>
-		                <p>Enim venia quis nostrud exrcit ulamco laboris niust aliquip conse reprehen derity fugiat nulla pariatur excpteur sint ipsum occaecat. Lorem ipsum dolor sit amet sed dolor ipsum consectetur.</p>
-		                <p><a href="blog-single" class="btn btn-primary py-2 px-3">Read more</a></p>
+		                <h3 class="heading"><a href="#">{{$d->title}}</a></h3>
+		                <p>{{ substr($d->description, 0,  110) }}</p>
+		                <p><a href="{{url('blog-single/'.$d->id)}}" class="btn btn-primary py-2 px-3">Read more</a></p>
 		              </div>
 		            </div>
 		          </div>
-		          <div class="col-md-12 d-flex ftco-animate">
-		            <div class="blog-entry align-self-stretch d-md-flex">
-		              <a href="blog-single" class="block-20" style="background-image: url({{url('frontend/images/img2.jpg')}});">
-		              </a>
-		              <div class="text d-block pl-md-4">
-		              	<div class="meta mb-3">
-		                  <div><a href="#">July 20, 2019</a></div>
-		                  <div><a href="#">Admin</a></div>
-		                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-		                </div>
-		                <h3 class="heading"><a href="#">Perfumes, Perfumed Or Eau De Toilette?</a></h3>
-		                <p>The history of perfume is about 5,000 years old and dates back to ancient Egypt and Mesopotamia. 
-							The fragrances of those times differed significantly from modern ones in that they were very concentrated.</p>
-		                <p><a href="blog-single" class="btn btn-primary py-2 px-3">Read more</a></p>
-		              </div>
-		            </div>
-		          </div>
-		          <div class="col-md-12 d-flex ftco-animate">
-		            <div class="blog-entry align-self-stretch d-md-flex">
-		              <a href="blog-single" class="block-20" style="background-image: url({{url('frontend/images/img3.jpg')}});">
-		              </a>
-		              <div class="text d-block pl-md-4">
-		              	<div class="meta mb-3">
-		                  <div><a href="#">July 20, 2019</a></div>
-		                  <div><a href="#">Admin</a></div>
-		                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-		                </div>
-		                <h3 class="heading"><a href="#">Best Multi-Step Skin Care Treatment</a></h3>
-		                <p>The history of perfume is about 5,000 years old and dates back to ancient Egypt and Mesopotamia. 
-							The fragrances of those times differed significantly from modern ones in that they were very concentrated.</p>
-		                <p><a href="blog-single" class="btn btn-primary py-2 px-3">Read more</a></p>
-		              </div>
-		            </div>
-		          </div>
-		          <div class="col-md-12 d-flex ftco-animate">
-		            <div class="blog-entry align-self-stretch d-md-flex">
-		              <a href="blog-single" class="block-20" style="background-image: url({{url('frontend/images/img4.jpg')}});">
-		              </a>
-		              <div class="text d-block pl-md-4">
-		              	<div class="meta mb-3">
-		                  <div><a href="#">July 20, 2019</a></div>
-		                  <div><a href="#">Admin</a></div>
-		                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-		                </div>
-		                <h3 class="heading"><a href="#">Best Multi-Step Skin Care Treatment</a></h3>
-		                <p>The history of perfume is about 5,000 years old and dates back to ancient Egypt and Mesopotamia. 
-							The fragrances of those times differed significantly from modern ones in that they were very concentrated.</p>
-		                <p><a href="blog-single" class="btn btn-primary py-2 px-3">Read more</a></p>
-		              </div>
-		            </div>
-		          </div>
-		          <div class="col-md-12 d-flex ftco-animate">
-		            <div class="blog-entry align-self-stretch d-md-flex">
-		              <a href="blog-single" class="block-20" style="background-image: url({{url('frontend/images/img5.jpg')}});">
-		              </a>
-		              <div class="text d-block pl-md-4">
-		              	<div class="meta mb-3">
-		                  <div><a href="#">July 20, 2019</a></div>
-		                  <div><a href="#">Admin</a></div>
-		                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-		                </div>
-		                <h3 class="heading"><a href="#">Best Multi-Step Skin Care Treatment</a></h3>
-		                <p>The history of perfume is about 5,000 years old and dates back to ancient Egypt and Mesopotamia. 
-							The fragrances of those times differed significantly from modern ones in that they were very concentrated.</p>
-		                <p><a href="blog-single" class="btn btn-primary py-2 px-3">Read more</a></p>
-		              </div>
-		            </div>
-		          </div>
-		          <div class="col-md-12 d-flex ftco-animate">
-		            <div class="blog-entry align-self-stretch d-md-flex">
-		              <a href="blog-single" class="block-20" style="background-image: url({{url('frontend/images/img6.jpg')}});">
-		              </a>
-		              <div class="text d-block pl-md-4">
-		              	<div class="meta mb-3">
-		                  <div><a href="#">July 20, 2019</a></div>
-		                  <div><a href="#">Admin</a></div>
-		                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-		                </div>
-		                <h3 class="heading"><a href="#">Attend Any Event With Full Spirit</a></h3>
-		                <p>Eiusmod temporl incididuntys labore dolore magna aliqua sed lorems ipsum dolor amet consecteur 
-							eiusmod tempor incididunt ut labore et dolor magna minim venia quis nostrud exercitation ullamco 
-							laboris nisi ut aliquip.</p>
-		                <p><a href="blog-single" class="btn btn-primary py-2 px-3">Read more</a></p>
-		              </div>
-		            </div>
-		          </div>
-						</div>
+				  @endforeach
+				</div>
           </div> <!-- .col-md-8 -->
           <div class="col-lg-4 sidebar ftco-animate">
             <div class="sidebar-box">
@@ -194,7 +110,7 @@
 
             <div class="sidebar-box ftco-animate">
               <h3 class="heading">Paragraph</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem necessitatibus voluptate quod mollitia delectus aut, sunt placeat nam vero culpa sapiente consectetur similique, inventore eos fugit cupiditate numquam!</p>
+              <p>“People are like stained-glass windows. They sparkle and shine when the sun is out, but when the darkness sets in, their true beauty is revealed only if there is a light from within.”</p>
             </div>
           </div>
 

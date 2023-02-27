@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\blogController;
 use App\Http\Controllers\customerController;
 use App\Http\Controllers\cartController;
 use App\Http\Controllers\categoryController;
@@ -76,9 +76,12 @@ Route::get('/profile1', function () {
     return view('frontend.profile1');
 });
 
+Route::get('/blog',[blogController::class,'viewall']);
+Route::get('/blog-single/{id}',[blogController::class,'singleblog_edit']);
+
 Route::get('/shop',[productController::class,'viewall']);
-Route::get('/index',[productController::class,'raindom_product']);
-Route::get('/',[productController::class,'raindom_product']);
+Route::get('/index',[productController::class,'random_product']);
+Route::get('/',[productController::class,'random_product']);
 
 Route::get('/view_customer_report',[customerController::class,'show']);
 
@@ -108,6 +111,7 @@ Route::get('/deleteiteams/{id}',[cartController::class,'delete_cart']);
 Route::get('/view_cart_report',[cartController::class,'show']);
 Route::post('/shop/{id}',[cartController::class,'add_cart']);
 
+Route::post('/index/{id}',[wishlistController::class,'add_wishlist']);
 Route::post('/shop/{id}',[wishlistController::class,'add_wishlist']);
 Route::get('/wishlist',[wishlistController::class,'manage_wishlist']);
 Route::get('/deletewishlist/{id}',[wishlistController::class,'destroy']);
@@ -127,6 +131,12 @@ Route::post('/login',[adminController::class,'adminlogin']);
 
 Route::group(['middleware'=>['adminafterlogin']],function(){
 Route::get('/dashboard',[adminController::class,'dashboard']);
+
+Route::post('/add_blog',[blogController::class,'add_blog']);
+Route::get('/manage_blog',[blogController::class,'manage_blog']);
+Route::get('/edit_blog/{id}',[blogController::class,'edit_blog']);
+Route::post('/edit_blog/{id}',[blogController::class,'blog_update']);
+Route::get('/delete_blog/{id}',[blogController::class,'destroy']);
 
  Route::get('/add_category',[categoryController::class,'add_categorypage']);
  Route::post('/add_category',[categoryController::class,'add_category']);
@@ -158,31 +168,10 @@ Route::get('/dashboard',[adminController::class,'dashboard']);
 //     return view('backend.dashboard');
 // });
 
-// Route::get('/add_category', function () {
-//     return view('backend.add_category');
-// });
+Route::get('/add_blog', function () {
+    return view('backend.add_blog');
+});
 
-
-
-// Route::get('/manage_category', function () {
-//     return view('backend.manage_category');
-// });
-
-// Route::get('/add_product', function () {
-//     return view('backend.add_product');
-// });
-
-// Route::get('/manage_product', function () {
-//     return view('backend.manage_product');
-// });
-
-// Route::get('/view_contact_report', function () {
-//     return view('backend.view_contact_report');
-// });
-
-// Route::get('/view_customer_report', function () {
-//     return view('backend.view_customer_report');
-// });
 
 Route::get('/calendar', function () {
     return view('backend.calendar');
@@ -192,33 +181,12 @@ Route::get('/colors', function () {
     return view('backend.colors');
 });
 
-Route::get('/datatables', function () {
-    return view('backend.datatables');
-});
 
-// Route::get('/login', function () {
-//     return view('backend.login');
-// });
 
 Route::get('/lockscreen', function () {
     return view('backend.lockscreen');
 });
 
-// Route::get('/register', function () {
-//     return view('backend.register');
-// });
-
-Route::get('/table_basic', function () {
-    return view('backend.table_basic');
-});
-
-Route::get('/tabs', function () {
-    return view('backend.tabs');
-});
-
-Route::get('/text_editors', function () {
-    return view('backend.text_editors');
-});
 
 Route::get('/mail_compose', function () {
     return view('backend.mail_compose');

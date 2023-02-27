@@ -78,7 +78,13 @@
 	          <li class="nav-item"><a href="{{url('/about')}}" class="nav-link">About</a></li>
 	          <li class="nav-item"><a href="{{url('/blog')}}" class="nav-link">Blog</a></li>
 	          <li class="nav-item"><a href="{{url('/contact')}}" class="nav-link">Contact</a></li>
-			  <li class="nav-item cta cta-colored"><a href="cart" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>
+			  <li class="nav-item cta cta-colored"><a href="cart" class="nav-link"><span class="icon-shopping_cart"></span>
+			  [
+				@if(!empty($total_cart))
+				{{$total_cart}}
+				@endif
+			  ]
+				</a></li>
 			  @if(session()->has('cust_id'))
 			  <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Welcome {{session('name')}}..!</a>

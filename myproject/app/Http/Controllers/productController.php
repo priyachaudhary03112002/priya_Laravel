@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\category;
 use App\Models\product;
-
+use App\Models\cart;
 
 use Hash;
 use Alert;
@@ -31,13 +31,15 @@ class productController extends Controller
        return view('frontend.shop',['data'=>$product, 'cate'=>$category]);
     }
 
-    public function raindom_product() 
-    {        
+    public function random_product() 
+    {
+       $cart_data=cart::where('cust_id','=',session('cust_id'))->get();
+       $total_cart = $cart_data->count();
 	   $data=product::inRandomOrder()->limit(4)->get();	
-       return view('frontend.index',['data'=>$data]);
+       return view('frontend.index',['data'=>$data,'total_cart'=>$total_cart]);
        return view('frontend./',['data'=>$data]);
-    }
-    
+    }    
+  
     public function product_category($cid) 
     {       	   
         $category=category::all();	
@@ -143,7 +145,8 @@ class productController extends Controller
     {
         $category=category::all();
             $data=product::where("id",'=',$id)->first();
-            return view('frontend.single_product',['category'=>$category,'fetch'=>$data]);
+            $fetch=product::inRandomOrder()->limit(4)->get();	
+            return view('frontend.single_product',['category'=>$category,'fetch'=>$data,'data'=>$fetch]);
     }
 
  
@@ -178,7 +181,7 @@ class productController extends Controller
             {
                 $prod_img=$request->file('prod_img');		
                 $prod_imgname=time().'_img.'.$request->file('prod_img')->getClientOriginalExtension();
-                $prod_img->move('backend/assets/img/upload/product//',$prod_imgname);  
+                $prod_img->move('backend/assets/img/upload/product/',$prod_imgname);  
                 $data->prod_img=$prod_imgname; 
                 unlink('backend/assets/img/upload/product/'.$old_file);
             }
