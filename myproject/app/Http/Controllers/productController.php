@@ -26,7 +26,7 @@ class productController extends Controller
 
     public function viewall() 
     {        
-	   $product=product::all();	
+	   $product=product::paginate(12);	
        $category=category::all();	
        return view('frontend.shop',['data'=>$product, 'cate'=>$category]);
     }

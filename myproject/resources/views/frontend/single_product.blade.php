@@ -55,7 +55,7 @@
 	                    <option value="">Extra Large</option>
 	                  </select>
 	                </div>
-		            </div>
+		            </div> 
 							</div>
 							<input type="hidden" id="cust_id" name="cust_id" value="{{session('cust_id')}}">
 							<input type="hidden" id="product_id" name="product_id" value="{{$fetch->id}}">

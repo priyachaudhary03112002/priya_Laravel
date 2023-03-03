@@ -30,6 +30,9 @@
 						      </tr>
 						    </thead>
 						    <tbody>
+							@php
+							$sum=0;
+							@endphp	
 							@foreach($fetch as $d)
 							
 						      <tr class="text-center">
@@ -46,13 +49,20 @@
 						        
 						        <td class="quantity">
 						        	<div class="input-group mb-3">
-									<button>-</button>
+									
 					             	<input type="text" name="qty" class="quantity form-control input-number" value="{{$d->qty}}" min="1" max="100">
-					          	<button>+</button>
+					          	
 								</div>
 					          </td>
 						       
-						        <td class="total">{{($d['qty'] * $d['dis_price'])}}</td>
+						        <td class="total"><?php
+								$total=$d->qty*$d->dis_price;
+								echo $total;
+								
+								$sum+=$total;
+								?>
+								</td>
+								
 								
 						      </tr><!-- END TR-->
 
@@ -102,8 +112,8 @@
     				<div class="cart-total mb-3">
     					<h3>Cart Totals</h3>
     					<p class="d-flex">
-    						<span>Subtotal</span>
-    						<span>$20.60</span>
+    						<span>Sub Total</span>
+    						<span>{{$sum}}</span>
     					</p>
     					<p class="d-flex">
     						<span>Delivery</span>
