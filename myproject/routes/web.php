@@ -83,7 +83,7 @@ Route::get('/shop',[productController::class,'viewall']);
 Route::get('/index',[productController::class,'random_product']);
 Route::get('/',[productController::class,'random_product']);
 
-Route::get('/view_customer_report',[customerController::class,'show']);
+
 
 Route::group(['middleware'=>['beforelogin']],function(){
 Route::post('/registration',[customerController::class,'register']);
@@ -121,6 +121,7 @@ Route::get('/product_page/{id}',[productController::class,'product_category']);
 
  // Bakend routs 
 
+Route::get('/view_customer_report',[customerController::class,'show']);
 
 Route::group(['middleware'=>['adminbeforelogin']],function(){
 Route::post('/register',[adminController::class,'store']);

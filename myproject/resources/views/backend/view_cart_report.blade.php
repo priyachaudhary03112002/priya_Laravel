@@ -27,8 +27,8 @@
                         <tr>
                             
                             <th>Cart Id</th> 
-                            <th>Product Id</th>
-                            <th>Cust Id</th>
+                            <th>Product Name</th>
+                            <th>Cust Name</th>
                             <th>Qty</th>
                            </tr>
                     </thead>
@@ -36,8 +36,8 @@
                         @foreach($fetch as $d)
                         <tr>                            
                             <td>{{$d->id}}</td>
-                            <td>{{$d->product_id}}</td>
-                            <td>{{$d->cust_id}}</td>
+                            <td>{{$d->prod_name}}</td>
+                            <td>{{$d->name}}</td>
                             <td>{{$d->qty}}</td>
                                                                                   
                           </tr>

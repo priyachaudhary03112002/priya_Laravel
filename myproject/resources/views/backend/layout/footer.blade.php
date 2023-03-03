@@ -162,7 +162,7 @@
     <script type="text/javascript">
         $(function() {
             $('#example-table').DataTable({
-                pageLength: 10,
+                pageLength: 05,
                 //"ajax": './assets/demo/data/table_data.json',
                 /*"columns": [
                     { "data": "name" },

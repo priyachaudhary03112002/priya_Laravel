@@ -76,7 +76,9 @@ class cartController extends Controller
      */
     public function show()
     {
-        $cart=cart::all();
+        // $cart=cart::all();
+        $cart=cart::join('products','carts.product_id','=', 'products.id')
+         ->join('customers', 'carts.cust_id', '=', 'customers.id')->get(['products.*', 'customers.*', 'carts.*']);
         return view('backend.view_cart_report',['fetch'=>$cart]);
     } 
 
